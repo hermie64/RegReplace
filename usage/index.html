@@ -1,141 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>User Guide - RegReplace Documentation</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../css/inlinehilite.css" rel="stylesheet">
+
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/inlinehilite.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> RegReplace Documentation</a>
         
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
         
+            <li class="toctree-l1 ">
+                <a class="" href="..">Home</a>
+                
+            </li>
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>User Guide - RegReplace Documentation</title>
-
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/highlight.css">
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
+    
         
-    </head>
-
-    <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
-
-            <!-- Main title -->
-            <a class="navbar-brand" href="..">RegReplace Documentation</a>
-        </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
+            <li class="toctree-l1 current">
+                <a class="current" href="./">User Guide</a>
                 
-                
-                    <li >
-                        <a href="..">Home</a>
-                    </li>
-                
-                
-                
-                    <li class="active">
-                        <a href="./">User Guide</a>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../license/">License</a>
-                    </li>
-                
-                
-                </ul>
-            
-
-            
-            <!-- Search, Navigation and Repo links -->
-            <ul class="nav navbar-nav navbar-right">
-                
-                
-                <li >
-                    <a rel="next" href="..">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </li>
-                <li >
-                    <a rel="prev" href="../license/">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </li>
-                
-                
-                <li>
-                    <a href="https://github.com/facelessuser/RegReplace">
+                    <ul>
+                    
+                        <li class="toctree-l3"><a href="#usage">Usage</a></li>
                         
-                            <i class="fa fa-github"></i>
+                            <li><a class="toctree-l4" href="#create-find-and-replace-sequences">Create Find and Replace Sequences</a></li>
                         
-                        GitHub
-                    </a>
-                </li>
+                            <li><a class="toctree-l4" href="#view-without-replacing">View Without Replacing</a></li>
+                        
+                            <li><a class="toctree-l4" href="#override-actions">Override Actions</a></li>
+                        
+                            <li><a class="toctree-l4" href="#multi-pass">Multi-Pass</a></li>
+                        
+                            <li><a class="toctree-l4" href="#replace-only-under-selections">Replace Only Under Selection(s)</a></li>
+                        
+                            <li><a class="toctree-l4" href="#use-regex-on-entire-file-buffer-when-using-selections">Use Regex on Entire File Buffer when Using Selections</a></li>
+                        
+                            <li><a class="toctree-l4" href="#apply-regex-right-before-file-save-event">Apply Regex Right Before File Save Event</a></li>
+                        
+                            <li><a class="toctree-l4" href="#custom-replace-plugins">Custom Replace Plugins</a></li>
+                        
+                            <li><a class="toctree-l4" href="#extended-back-references">Extended Back References</a></li>
+                        
+                    
+                    </ul>
                 
-            </ul>
-            
-        </div>
-    </div>
+            </li>
+        
+
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../license/">License</a>
+                
+            </li>
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">RegReplace Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+    <li>User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/facelessuser/RegReplace" class="icon icon-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
 </div>
-
-        <div class="container">
-            
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#usage">Usage</a></li>
-        
-            <li><a href="#create-find-and-replace-sequences">Create Find and Replace Sequences</a></li>
-        
-            <li><a href="#view-without-replacing">View Without Replacing</a></li>
-        
-            <li><a href="#override-actions">Override Actions</a></li>
-        
-            <li><a href="#multi-pass">Multi-Pass</a></li>
-        
-            <li><a href="#replace-only-under-selections">Replace Only Under Selection(s)</a></li>
-        
-            <li><a href="#use-regex-on-entire-file-buffer-when-using-selections">Use Regex on Entire File Buffer when Using Selections</a></li>
-        
-            <li><a href="#apply-regex-right-before-file-save-event">Apply Regex Right Before File Save Event</a></li>
-        
-            <li><a href="#custom-replace-plugins">Custom Replace Plugins</a></li>
-        
-            <li><a href="#extended-back-references">Extended Back References</a></li>
-        
-    
-    </ul>
-</div></div>
-                <div class="col-md-9" role="main">
-
-<h1 id="usage">Usage</h1>
+          <div role="main">
+            <div class="section">
+              <h1 id="usage">Usage</h1>
 <h2 id="create-find-and-replace-sequences">Create Find and Replace Sequences</h2>
 <p>To use, replacements must be defined in the reg_replace.sublime-settings file.</p>
 <p>There are two kinds of definitions.  The first uses regex to find regions, and then you can use scopes to qualify the regions before applying the replace.</p>
@@ -227,7 +216,7 @@
 
 <h2 id="view-without-replacing">View Without Replacing</h2>
 <p>If you would simply like to view what the sequence would find without replacing, you can construct a command to highlight targets without replacing them (each pass could affect the end result, but this just shows all passes without predicting replaces).</p>
-<p>Just add the "find_only" argument and set it to true.</p>
+<p>Just add the &ldquo;find_only&rdquo; argument and set it to true.</p>
 <pre><code class="javascript">    {
         &quot;caption&quot;: &quot;Reg Replace: Remove Trailing Spaces&quot;,
         &quot;command&quot;: &quot;reg_replace&quot;,
@@ -236,10 +225,10 @@
 </code></pre>
 
 <p>A prompt will appear allowing you to replace the highlighted regions.  Regions will be cleared on cancel.</p>
-<p>If for any reason the highlights do not get cleared, you can simply run the "RegReplace: Clear Highlights" command from the command palette.</p>
+<p>If for any reason the highlights do not get cleared, you can simply run the &ldquo;RegReplace: Clear Highlights&rdquo; command from the command palette.</p>
 <p>Highlight color and style can be changed in the settings file.</p>
 <h2 id="override-actions">Override Actions</h2>
-<p>If instead of replacing you would like to do something else, you can override the action. Actions are defined in commands by setting the <code>action</code> parameter.  Some actions may require additional parameters be set in the <code>options</code> parameter.  See examples below.</p>
+<p>If instead of replacing you would like to do something else, you can override the action. Actions are defined in commands by setting the <code class="inlinehilite language-text">action</code> parameter.  Some actions may require additional parameters be set in the <code class="inlinehilite language-text">options</code> parameter.  See examples below.</p>
 <pre><code class="javascript">    {
         &quot;caption&quot;: &quot;Reg Replace: Fold HTML Comments&quot;,
         &quot;command&quot;: &quot;reg_replace&quot;,
@@ -292,7 +281,7 @@
 
 <p>This action highlights the regions of the given find target.</p>
 <h4 id="mark-options">Mark Options</h4>
-<p>Action options are specified with the <code>options</code> key.</p>
+<p>Action options are specified with the <code class="inlinehilite language-text">options</code> key.</p>
 <h5 id="required-parameters">Required Parameters:</h5>
 <pre><code class="js">&quot;options&quot;: {&quot;key&quot;: &quot;name&quot;}
 </code></pre>
@@ -302,18 +291,18 @@
 <pre><code class="js">&quot;options&quot;: {&quot;scope&quot;: &quot;invalid&quot;}
 </code></pre>
 
-<p>Scope name to use as the color. Default is <code>invalid</code>.</p>
+<p>Scope name to use as the color. Default is <code class="inlinehilite language-text">invalid</code>.</p>
 <pre><code class="js">&quot;options&quot;: {&quot;style&quot;: &quot;outline&quot;}
 </code></pre>
 
-<p>Highlight style (solid|underline|outline). Default is <code>outline</code>.</p>
+<p>Highlight style (solid|underline|outline). Default is <code class="inlinehilite language-text">outline</code>.</p>
 <h3 id="unmark-override">Unmark Override</h3>
 <pre><code class="js">&quot;action&quot;: &quot;unmark&quot;
 </code></pre>
 
-<p>This action removes the highlights of a given <code>key</code>.  Replacements can be omitted with this command.</p>
+<p>This action removes the highlights of a given <code class="inlinehilite language-text">key</code>.  Replacements can be omitted with this command.</p>
 <h4 id="unmark-options">Unmark Options</h4>
-<p>Action options are specified with the <code>options</code> key.</p>
+<p>Action options are specified with the <code class="inlinehilite language-text">options</code> key.</p>
 <h5 id="required-parameters_1">Required Parameters:</h5>
 <pre><code class="js">&quot;options&quot;: {&quot;key&quot;: &quot;name&quot;}
 </code></pre>
@@ -321,7 +310,7 @@
 <p>unique name of highlighted regions to clear</p>
 <h2 id="multi-pass">Multi-Pass</h2>
 <p>Sometimes a regular expression cannot be made to find all instances in one pass.  In this case, you can use the multi-pass option.</p>
-<p>Multi-pass cannot be paired with override actions (it will be ignored), but it can be paired with <code>find_only</code>.  Multi-pass will sweep the file repeatedly until all instances are found and replaced.  To protect against poorly constructed multi-pass regex looping forever, there is a default max sweep threshold that will cause the sequence to kick out if it is reached.  This threshold can be tweaked in the settings file.</p>
+<p>Multi-pass cannot be paired with override actions (it will be ignored), but it can be paired with <code class="inlinehilite language-text">find_only</code>.  Multi-pass will sweep the file repeatedly until all instances are found and replaced.  To protect against poorly constructed multi-pass regex looping forever, there is a default max sweep threshold that will cause the sequence to kick out if it is reached.  This threshold can be tweaked in the settings file.</p>
 <pre><code class="javascript">    {
         &quot;caption&quot;: &quot;Reg Replace: Remove Trailing Spaces&quot;,
         &quot;command&quot;: &quot;reg_replace&quot;,
@@ -330,7 +319,7 @@
 </code></pre>
 
 <h2 id="replace-only-under-selections">Replace Only Under Selection(s)</h2>
-<p>Sometimes you only want to search under selections.  This can be done by enabling the <code>selection_only</code> setting in the settings file.  By enabling this setting, regex targets will be limited to the current selection if and only if a selection exists.  Auto replace/highlight on save events ignore this setting.  If you have a command that you wish to ignore this setting, just set the <code>no_selection</code> argument to <code>true</code>.  Highlight style will be forced to underline under selections if <code>find_only</code> is set to ensure they will show up.</p>
+<p>Sometimes you only want to search under selections.  This can be done by enabling the <code class="inlinehilite language-text">selection_only</code> setting in the settings file.  By enabling this setting, regex targets will be limited to the current selection if and only if a selection exists.  Auto replace/highlight on save events ignore this setting.  If you have a command that you wish to ignore this setting, just set the <code class="inlinehilite language-text">no_selection</code> argument to <code class="inlinehilite language-text">true</code>.  Highlight style will be forced to underline under selections if <code class="inlinehilite language-text">find_only</code> is set to ensure they will show up.</p>
 <pre><code class="javascript">    // Ignore &quot;selection_only&quot; setting
     {
         &quot;caption&quot;: &quot;Reg Replace: Remove Trailing Spaces&quot;,
@@ -340,7 +329,7 @@
 </code></pre>
 
 <h2 id="use-regex-on-entire-file-buffer-when-using-selections">Use Regex on Entire File Buffer when Using Selections</h2>
-<p>Sometimes you might have a regex chain that lends itself better to performing the regex on the entire file buffer and then pick the matches under the selections as opposed to the default behavior of applying the regex directly to the selection buffer.  To do this, you can use the option <code>regex_full_file_with_selections</code>.</p>
+<p>Sometimes you might have a regex chain that lends itself better to performing the regex on the entire file buffer and then pick the matches under the selections as opposed to the default behavior of applying the regex directly to the selection buffer.  To do this, you can use the option <code class="inlinehilite language-text">regex_full_file_with_selections</code>.</p>
 <pre><code class="javascript">    {
         &quot;caption&quot;: &quot;Remove: All Comments&quot;,
         &quot;command&quot;: &quot;reg_replace&quot;,
@@ -356,7 +345,7 @@
 </code></pre>
 
 <h2 id="apply-regex-right-before-file-save-event">Apply Regex Right Before File Save Event</h2>
-<p>If you want to automatically apply a sequence right before a file saves, you can define sequences in the reg_replace.sublime-settings file.  Each "on save" sequence will be applied to the files you specify by file patterns or file regex.  Also, you must have <code>on_save</code> set to <code>true</code>.  You can also just highlight, fold, or unfold by regex by adding the <code>"action": "mark"</code> key/value pair (options are mark, fold, and unfold). Both types can be used at the same time. Actions are performed after replacements.</p>
+<p>If you want to automatically apply a sequence right before a file saves, you can define sequences in the reg_replace.sublime-settings file.  Each &ldquo;on save&rdquo; sequence will be applied to the files you specify by file patterns or file regex.  Also, you must have <code class="inlinehilite language-text">on_save</code> set to <code class="inlinehilite language-text">true</code>.  You can also just highlight, fold, or unfold by regex by adding the <code class="inlinehilite language-text">&quot;action&quot;: &quot;mark&quot;</code> key/value pair (options are mark, fold, and unfold). Both types can be used at the same time. Actions are performed after replacements.</p>
 <p>Example:</p>
 <pre><code class="javascript">    // If on_save is true, RegReplace will search through the file patterns listed below right before a file is saved,
     // if the file name matches a file pattern, the sequence will be applied before the file is saved.
@@ -392,9 +381,9 @@
 </code></pre>
 
 <h2 id="custom-replace-plugins">Custom Replace Plugins</h2>
-<p>There are times that simple regular expression and replace is not enough.  Since RegReplace uses Python's re regex engine, we can use python code to intercept the replace and do more complex things via a plugin.</p>
+<p>There are times that simple regular expression and replace is not enough.  Since RegReplace uses Python&rsquo;s re regex engine, we can use python code to intercept the replace and do more complex things via a plugin.</p>
 <p>In this example we are going to search for dates with the form YYYYMMDD and increment them by one day.</p>
-<p>Here is the regex rule, notice we have defined a plugin to replace.  Plugins are defined as if you were importing a module in python.  So in this example, we are loading it from the <code>User</code> package. You do not need an <code>__init__.py</code> file in <code>rr_modules</code> folder; it is recommended to not use one as Sublime shouldn't bother loading these files as RegReplace will load them when needed.</p>
+<p>Here is the regex rule, notice we have defined a plugin to replace.  Plugins are defined as if you were importing a module in python.  So in this example, we are loading it from the <code class="inlinehilite language-text">User</code> package. You do not need an <code class="inlinehilite language-text">__init__.py</code> file in <code class="inlinehilite language-text">rr_modules</code> folder; it is recommended to not use one as Sublime shouldn&rsquo;t bother loading these files as RegReplace will load them when needed.</p>
 <pre><code class="js">&quot;date_up&quot;: {
     &quot;find&quot;: &quot;(?P&lt;year&gt;\\d{4})(?P&lt;month&gt;\\d{2})(?P&lt;day&gt;\\d{2})&quot;,
     &quot;plugin&quot;: &quot;User.rr_modules.date_up&quot;
@@ -410,7 +399,7 @@
     },
 </code></pre>
 
-<p>Lastly we can provide the plugin.  RegReplace will load the plugin and look for a function called <code>replace</code>.  <code>replace</code> takes a python re match object, and any arguments you want to feed it (arguments are defined in the regex rule as shown above):</p>
+<p>Lastly we can provide the plugin.  RegReplace will load the plugin and look for a function called <code class="inlinehilite language-text">replace</code>.  <code class="inlinehilite language-text">replace</code> takes a python re match object, and any arguments you want to feed it (arguments are defined in the regex rule as shown above):</p>
 <pre><code class="python">SHORT_MONTH = 30
 LONG_MONTH = 31
 FEB_MONTH = 28
@@ -475,14 +464,14 @@ def replace(m):
 # Test 3: 20140101
 </code></pre>
 
-<p>RegReplace comes with a very simple example you can test with found at <code>/Packages/RegReplace/rr_modules/example.py</code>.  Imported with <code>RegReplace.rr_modules.example</code>.</p>
+<p>RegReplace comes with a very simple example you can test with found at <code class="inlinehilite language-text">/Packages/RegReplace/rr_modules/example.py</code>.  Imported with <code class="inlinehilite language-text">RegReplace.rr_modules.example</code>.</p>
 <h2 id="extended-back-references">Extended Back References</h2>
-<p>Python's <code>re</code> module (which is what RegReplace uses), doesn't support title case back references: <code>\u</code>, <code>\U</code>, <code>\l</code>, <code>\L</code>, or <code>\E</code>.  This can be a little frustrating when performing certain kinds of replaces where you want to force upper and lower case on certain characters or series of characters.  Well, no worries, extended back references to the rescue!  You can enable extended back references in the settings file:</p>
+<p>Python&rsquo;s <code class="inlinehilite language-text">re</code> module (which is what RegReplace uses), doesn&rsquo;t support title case back references: <code class="inlinehilite language-text">\u</code>, <code class="inlinehilite language-text">\U</code>, <code class="inlinehilite language-text">\l</code>, <code class="inlinehilite language-text">\L</code>, or <code class="inlinehilite language-text">\E</code>.  This can be a little frustrating when performing certain kinds of replaces where you want to force upper and lower case on certain characters or series of characters.  Well, no worries, extended back references to the rescue!  You can enable extended back references in the settings file:</p>
 <pre><code class="js">    // Use extended back references
     &quot;extended_back_references&quot;: true
 </code></pre>
 
-<p>It is important to note that there has been a slight modification to the common convention; instead of using <code>\u</code> and <code>\U</code> for uppercase, we use <code>\c</code> and <code>\C</code> respectively; python strings reserves <code>\u</code> for unicode characters.</p>
+<p>It is important to note that there has been a slight modification to the common convention; instead of using <code class="inlinehilite language-text">\u</code> and <code class="inlinehilite language-text">\U</code> for uppercase, we use <code class="inlinehilite language-text">\c</code> and <code class="inlinehilite language-text">\C</code> respectively; python strings reserves <code class="inlinehilite language-text">\u</code> for unicode characters.</p>
 <table>
 <thead>
 <tr>
@@ -492,23 +481,23 @@ def replace(m):
 </thead>
 <tbody>
 <tr>
-<td><code>\c</code></td>
+<td><code class="inlinehilite language-text">\c</code></td>
 <td>Uppercase the next character.</td>
 </tr>
 <tr>
-<td><code>\l</code></td>
+<td><code class="inlinehilite language-text">\l</code></td>
 <td>Lowercase the next character.</td>
 </tr>
 <tr>
-<td><code>\C</code></td>
-<td>Apply uppercase to all characters until either the end of the string or the end marker <code>\E</code> is found.</td>
+<td><code class="inlinehilite language-text">\C</code></td>
+<td>Apply uppercase to all characters until either the end of the string or the end marker <code class="inlinehilite language-text">\E</code> is found.</td>
 </tr>
 <tr>
-<td><code>\L</code></td>
-<td>Apply lowercase to all characters until either the end of the string or the end marker <code>\E</code> is found.</td>
+<td><code class="inlinehilite language-text">\L</code></td>
+<td>Apply lowercase to all characters until either the end of the string or the end marker <code class="inlinehilite language-text">\E</code> is found.</td>
 </tr>
 <tr>
-<td><code>\E</code></td>
+<td><code class="inlinehilite language-text">\E</code></td>
 <td>Signal the end of an uppercase or lowercase range.</td>
 </tr>
 </tbody>
@@ -519,28 +508,52 @@ def replace(m):
         &quot;replace&quot;: &quot;\\c\\1\\L\\g&lt;somegroup&gt;\\E\\C\\g&lt;3&gt;\\E&quot;,
         &quot;greedy&quot;: true
     }
-</code></pre></div>
-            
+</code></pre>
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../license/" class="btn btn-neutral float-right" title="License"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
         </div>
+      </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <p>Copyright &copy; 2011 - 2015 <a href="https://github.com/facelessuser">Isaac Muse</a></p>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
+    </section>
 
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
         
+            <a href="https://github.com/facelessuser/RegReplace" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+        
+      <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../license/" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
 
-        <script src="../js/jquery-1.10.2.min.js"></script>
-        <script src="../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../js/highlight.pack.js"></script>
-        <script src="../js/base.js"></script>
-
-        <!--
-        MkDocs version  : 0.12.1
-        Docs Build Date : 2015-04-20 02:06:08.232062
-        -->
-    </body>
+<!--
+MkDocs version  : 0.12.1
+Docs Build Date : 2015-04-20 07:28:15.303768
+-->
+</body>
 </html>

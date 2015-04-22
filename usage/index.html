@@ -15,14 +15,12 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_custom.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
-  <link href="../css/theme_custom.css" rel="stylesheet">
 
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script>
-  <script src="../js/theme_custom.js"></script> 
+  <script src="../js/theme.js"></script> 
 
   
 </head>
@@ -124,354 +122,378 @@
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="usage">Usage</h1>
-<h2 id="create-find-and-replace-sequences">Create Find and Replace Sequences</h2>
+              <h1 id="usage"><a name="user-content-usage" href="#usage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Usage</h1>
+<h2 id="create-find-and-replace-sequences"><a name="user-content-create-find-and-replace-sequences" href="#create-find-and-replace-sequences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Create Find and Replace Sequences</h2>
 <p>To use, replacements must be defined in the reg_replace.sublime-settings file.</p>
 <p>There are two kinds of definitions.  The first uses regex to find regions, and then you can use scopes to qualify the regions before applying the replace.</p>
-<pre><code class="javascript">    // Required parameters:
-    //     find:    Regex description of what you would like to target.
-    //
-    // Optional parameters:
-    //     replace:      description of what you would like to replace target with.
-    //                   Variables are okay for non-literal searches and are done by escaping
-    //                   the selection number \\1 etc.  Default value is &quot;&quot; (empty string)
-    //     literal:      Boolean setting to define whether the find and replace is literal or not.
-    //                   Default is false.
-    //     greedy:       Boolean setting to define whether search is greedy or not. Default is true.
-    //     case:         Boolean defining case sensitivity.  True equals sensitive. Default is true.
-    //     dotall:       Boolean defining whether to use dotall flag in regex (include \n etc. when using dot).
-    //                   Default is False
-    //     scope_filter: an array of scope qualifiers for the match.
-    //                       - Any instance of scope qualifies match: scope.name
-    //                       - Entire match of scope qualifies match: !scope.name
-    //                       - Any instance of scope disqualifies match: -scope.name
-    //                       - Entire match of scope disqualifies match: -!scope.name
+<div class="codehilite"><pre>    <span class="c1">// Required parameters:</span>
+    <span class="c1">//     find:    Regex description of what you would like to target.</span>
+    <span class="c1">//</span>
+    <span class="c1">// Optional parameters:</span>
+    <span class="c1">//     replace:      description of what you would like to replace target with.</span>
+    <span class="c1">//                   Variables are okay for non-literal searches and are done by escaping</span>
+    <span class="c1">//                   the selection number \\1 etc.  Default value is &quot;&quot; (empty string)</span>
+    <span class="c1">//     literal:      Boolean setting to define whether the find and replace is literal or not.</span>
+    <span class="c1">//                   Default is false.</span>
+    <span class="c1">//     greedy:       Boolean setting to define whether search is greedy or not. Default is true.</span>
+    <span class="c1">//     case:         Boolean defining case sensitivity.  True equals sensitive. Default is true.</span>
+    <span class="c1">//     dotall:       Boolean defining whether to use dotall flag in regex (include \n etc. when using dot).</span>
+    <span class="c1">//                   Default is False</span>
+    <span class="c1">//     scope_filter: an array of scope qualifiers for the match.</span>
+    <span class="c1">//                       - Any instance of scope qualifies match: scope.name</span>
+    <span class="c1">//                       - Entire match of scope qualifies match: !scope.name</span>
+    <span class="c1">//                       - Any instance of scope disqualifies match: -scope.name</span>
+    <span class="c1">//                       - Entire match of scope disqualifies match: -!scope.name</span>
 
 
-    {
-        &quot;replacements&quot;: {
-            &quot;html5_remove_deprecated_type_attr&quot;: {
-                &quot;find&quot;: &quot;(&lt;(style|script)[^&gt;]*)\\stype=(\&quot;|')text/(css|javascript)(\&quot;|')([^&gt;]*&gt;)&quot;,
-                &quot;replace&quot;: &quot;\\1\\6&quot;,
-                &quot;greedy&quot;: true,
-                &quot;case&quot;: false
-            },
-</code></pre>
+    <span class="p">{</span>
+        <span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;html5_remove_deprecated_type_attr&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;find&quot;</span><span class="o">:</span> <span class="s2">&quot;(&lt;(style|script)[^&gt;]*)\\stype=(\&quot;|&#39;)text/(css|javascript)(\&quot;|&#39;)([^&gt;]*&gt;)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;replace&quot;</span><span class="o">:</span> <span class="s2">&quot;\\1\\6&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;greedy&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="s2">&quot;case&quot;</span><span class="o">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+</pre></div>
+
 
 <p>The second kind of definition allows you to search for a scope type and then apply regex to the regions to filter the matches and make replaces.</p>
-<pre><code class="javascript">    // Required parameters:
-    //     scope:    scope you would like to target
-    //
-    // Optional parameters:
-    //     find:            regex description that is to be applied to the scope
-    //                      to qualify.  Also can be used to find and replace
-    //                      within the found scope.  Default is None.
-    //     replace:         description of what you would like to replace within the scope.
-    //                      Default value is &quot;\\0&quot;.
-    //     literal:         Boolean setting to define whether the find and replace is literal or not.
-    //                      Default is false.
-    //     greedy_replace:  Boolean setting to define whether regex search is greedy or not. Default is true.
-    //     greedy_scope:    Boolean setting to define whether scope search is greedy or not. Default is true.
-    //     case:            Boolean setting to define whether regex search is case sensitive. Default is true.
-    //     dotall:          Boolean defining whether to use dotall flag in regex (include \n etc. when using dot).
-    //                      Default is False
-    //     multi_pass_regex:Boolean setting to define whether there will be multiple sweeps on the scope region
-    //                      region to find and replace all instances of the regex, when regex cannot be formatted
-    //                      to find all instances in a greedy fashion.  Default is false.
+<div class="codehilite"><pre>    <span class="c1">// Required parameters:</span>
+    <span class="c1">//     scope:    scope you would like to target</span>
+    <span class="c1">//</span>
+    <span class="c1">// Optional parameters:</span>
+    <span class="c1">//     find:            regex description that is to be applied to the scope</span>
+    <span class="c1">//                      to qualify.  Also can be used to find and replace</span>
+    <span class="c1">//                      within the found scope.  Default is None.</span>
+    <span class="c1">//     replace:         description of what you would like to replace within the scope.</span>
+    <span class="c1">//                      Default value is &quot;\\0&quot;.</span>
+    <span class="c1">//     literal:         Boolean setting to define whether the find and replace is literal or not.</span>
+    <span class="c1">//                      Default is false.</span>
+    <span class="c1">//     greedy_replace:  Boolean setting to define whether regex search is greedy or not. Default is true.</span>
+    <span class="c1">//     greedy_scope:    Boolean setting to define whether scope search is greedy or not. Default is true.</span>
+    <span class="c1">//     case:            Boolean setting to define whether regex search is case sensitive. Default is true.</span>
+    <span class="c1">//     dotall:          Boolean defining whether to use dotall flag in regex (include \n etc. when using dot).</span>
+    <span class="c1">//                      Default is False</span>
+    <span class="c1">//     multi_pass_regex:Boolean setting to define whether there will be multiple sweeps on the scope region</span>
+    <span class="c1">//                      region to find and replace all instances of the regex, when regex cannot be formatted</span>
+    <span class="c1">//                      to find all instances in a greedy fashion.  Default is false.</span>
 
 
-    {
-            &quot;replacements&quot;: {
-                &quot;remove_comments&quot;: {
-                    &quot;scope&quot;: &quot;comment&quot;,
-                    &quot;find&quot; : &quot;(([^\\n\\r]*)(\\r\\n|\\n))*([^\\n\\r]+)&quot;,
-                    &quot;replace&quot;: &quot;&quot;,
-                    &quot;greedy_replace&quot;: true
-                }
-</code></pre>
+    <span class="p">{</span>
+            <span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;remove_comments&quot;</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;scope&quot;</span><span class="o">:</span> <span class="s2">&quot;comment&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;find&quot;</span> <span class="o">:</span> <span class="s2">&quot;(([^\\n\\r]*)(\\r\\n|\\n))*([^\\n\\r]+)&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;replace&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;greedy_replace&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                <span class="p">}</span>
+</pre></div>
+
 
 <p>Once you have replacements defined, there are a number of ways you can run a sequence.  One way is to create a command in the command palette by editing/creating a Default.sublime-commands in your User folder and adding your command.  RegReplace comes with its own Default.sublime-commands file and includes some examples showing simple replacement commands and an example showing the chaining of multiple replacements.</p>
-<pre><code class="javascript">    {
-        &quot;caption&quot;: &quot;Reg Replace: Remove Trailing Spaces&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {&quot;replacements&quot;: [&quot;remove_trailing_spaces&quot;]}
-    },
-</code></pre>
+<div class="codehilite"><pre>    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove Trailing Spaces&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;remove_trailing_spaces&quot;</span><span class="p">]}</span>
+    <span class="p">},</span>
+</pre></div>
+
 
 <p>Chained replacements in one command</p>
-<pre><code class="javascript">    {
-        &quot;caption&quot;: &quot;Reg Replace: Remove HTML Comments and Trailing Spaces&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {&quot;replacements&quot;: [&quot;remove_html_comments&quot;, &quot;remove_trailing_spaces&quot;]}
-    }
-</code></pre>
+<div class="codehilite"><pre>    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove HTML Comments and Trailing Spaces&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;remove_html_comments&quot;</span><span class="p">,</span> <span class="s2">&quot;remove_trailing_spaces&quot;</span><span class="p">]}</span>
+    <span class="p">}</span>
+</pre></div>
+
 
 <p>You can also bind a replacement command to a shortcut.</p>
-<pre><code class="javascript">    {
-        &quot;keys&quot;: [&quot;ctrl+shift+t&quot;],
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {&quot;replacements&quot;: [&quot;remove_trailing_spaces&quot;]}
-    }
-</code></pre>
+<div class="codehilite"><pre>    <span class="p">{</span>
+        <span class="s2">&quot;keys&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;ctrl+shift+t&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;remove_trailing_spaces&quot;</span><span class="p">]}</span>
+    <span class="p">}</span>
+</pre></div>
 
-<h2 id="view-without-replacing">View Without Replacing</h2>
+
+<h2 id="view-without-replacing"><a name="user-content-view-without-replacing" href="#view-without-replacing" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>View Without Replacing</h2>
 <p>If you would simply like to view what the sequence would find without replacing, you can construct a command to highlight targets without replacing them (each pass could affect the end result, but this just shows all passes without predicting replaces).</p>
 <p>Just add the &ldquo;find_only&rdquo; argument and set it to true.</p>
-<pre><code class="javascript">    {
-        &quot;caption&quot;: &quot;Reg Replace: Remove Trailing Spaces&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {&quot;replacements&quot;: [&quot;remove_trailing_spaces&quot;], &quot;find_only&quot;: true}
-    },
-</code></pre>
+<div class="codehilite"><pre>    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove Trailing Spaces&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;remove_trailing_spaces&quot;</span><span class="p">],</span> <span class="s2">&quot;find_only&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">}</span>
+    <span class="p">},</span>
+</pre></div>
+
 
 <p>A prompt will appear allowing you to replace the highlighted regions.  Regions will be cleared on cancel.</p>
 <p>If for any reason the highlights do not get cleared, you can simply run the &ldquo;RegReplace: Clear Highlights&rdquo; command from the command palette.</p>
 <p>Highlight color and style can be changed in the settings file.</p>
-<h2 id="override-actions">Override Actions</h2>
-<p>If instead of replacing you would like to do something else, you can override the action. Actions are defined in commands by setting the <code class="inlinehilite language-text">action</code> parameter.  Some actions may require additional parameters be set in the <code class="inlinehilite language-text">options</code> parameter.  See examples below.</p>
-<pre><code class="javascript">    {
-        &quot;caption&quot;: &quot;Reg Replace: Fold HTML Comments&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {&quot;replacements&quot;: [&quot;remove_html_comments&quot;], &quot;action&quot;: &quot;fold&quot;}
-    },
-    {
-        &quot;caption&quot;: &quot;Reg Replace: Unfold HTML Comments&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {&quot;replacements&quot;: [&quot;remove_html_comments&quot;], &quot;action&quot;: &quot;unfold&quot;}
-    },
-    {
-        &quot;caption&quot;: &quot;Reg Replace: Mark Example&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {
-            &quot;replacements&quot;: [&quot;example&quot;],
-            &quot;action&quot;: &quot;mark&quot;,
-            &quot;options&quot;: {&quot;key&quot;: &quot;name&quot;, &quot;scope&quot;: &quot;invalid&quot;, &quot;style&quot;: &quot;underline&quot;}
-        }
-    },
-    {
-        &quot;caption&quot;: &quot;Reg Replace: Unmark Example&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {
-            &quot;action&quot;: &quot;unmark&quot;,
-            &quot;options&quot;: {&quot;key&quot;: &quot;name&quot;}
-        }
-    },
-</code></pre>
+<h2 id="override-actions"><a name="user-content-override-actions" href="#override-actions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Override Actions</h2>
+<p>If instead of replacing you would like to do something else, you can override the action. Actions are defined in commands by setting the <code>action</code> parameter.  Some actions may require additional parameters be set in the <code>options</code> parameter.  See examples below.</p>
+<div class="codehilite"><pre>    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Fold HTML Comments&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;remove_html_comments&quot;</span><span class="p">],</span> <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;fold&quot;</span><span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Unfold HTML Comments&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;remove_html_comments&quot;</span><span class="p">],</span> <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;unfold&quot;</span><span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Mark Example&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;example&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;mark&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;scope&quot;</span><span class="o">:</span> <span class="s2">&quot;invalid&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;underline&quot;</span><span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Unmark Example&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;unmark&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+</pre></div>
 
-<h3 id="supported-override-actions">Supported override actions:</h3>
+
+<h3 id="supported-override-actions"><a name="user-content-supported-override-actions" href="#supported-override-actions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Supported override actions:</h3>
 <ul>
 <li>fold</li>
 <li>unfold</li>
 <li>mark</li>
 <li>unmark</li>
 </ul>
-<h3 id="fold-override">Fold Override</h3>
-<pre><code class="js">&quot;action&quot;: &quot;fold&quot;
-</code></pre>
+<h3 id="fold-override"><a name="user-content-fold-override" href="#fold-override" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Fold Override</h3>
+<div class="codehilite"><pre><span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;fold&quot;</span>
+</pre></div>
+
 
 <p>This action folds the given find target.  This action has no parameters.</p>
-<h3 id="unfold-override">Unfold Override</h3>
-<pre><code class="js">&quot;action&quot;: &quot;unfold&quot;
-</code></pre>
+<h3 id="unfold-override"><a name="user-content-unfold-override" href="#unfold-override" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Unfold Override</h3>
+<div class="codehilite"><pre><span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;unfold&quot;</span>
+</pre></div>
+
 
 <p>This action unfolds the all regions that match the given find target.  This action has no parameters</p>
-<h3 id="mark-override">Mark Override</h3>
-<pre><code class="js">&quot;action&quot;: &quot;mark&quot;
-</code></pre>
+<h3 id="mark-override"><a name="user-content-mark-override" href="#mark-override" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Mark Override</h3>
+<div class="codehilite"><pre><span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;mark&quot;</span>
+</pre></div>
+
 
 <p>This action highlights the regions of the given find target.</p>
-<h4 id="mark-options">Mark Options</h4>
-<p>Action options are specified with the <code class="inlinehilite language-text">options</code> key.</p>
-<h5 id="required-parameters">Required Parameters:</h5>
-<pre><code class="js">&quot;options&quot;: {&quot;key&quot;: &quot;name&quot;}
-</code></pre>
+<h4 id="mark-options"><a name="user-content-mark-options" href="#mark-options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Mark Options</h4>
+<p>Action options are specified with the <code>options</code> key.</p>
+<h5 id="required-parameters"><a name="user-content-required-parameters" href="#required-parameters" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Required Parameters:</h5>
+<div class="codehilite"><pre><span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">}</span>
+</pre></div>
+
 
 <p>Unique name for highlighted regions.</p>
-<h4 id="optional-parameters">Optional Parameters:</h4>
-<pre><code class="js">&quot;options&quot;: {&quot;scope&quot;: &quot;invalid&quot;}
-</code></pre>
+<h4 id="optional-parameters"><a name="user-content-optional-parameters" href="#optional-parameters" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Optional Parameters:</h4>
+<div class="codehilite"><pre><span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;scope&quot;</span><span class="o">:</span> <span class="s2">&quot;invalid&quot;</span><span class="p">}</span>
+</pre></div>
 
-<p>Scope name to use as the color. Default is <code class="inlinehilite language-text">invalid</code>.</p>
-<pre><code class="js">&quot;options&quot;: {&quot;style&quot;: &quot;outline&quot;}
-</code></pre>
 
-<p>Highlight style (solid|underline|outline). Default is <code class="inlinehilite language-text">outline</code>.</p>
-<h3 id="unmark-override">Unmark Override</h3>
-<pre><code class="js">&quot;action&quot;: &quot;unmark&quot;
-</code></pre>
+<p>Scope name to use as the color. Default is <code>invalid</code>.</p>
+<div class="codehilite"><pre><span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;outline&quot;</span><span class="p">}</span>
+</pre></div>
 
-<p>This action removes the highlights of a given <code class="inlinehilite language-text">key</code>.  Replacements can be omitted with this command.</p>
-<h4 id="unmark-options">Unmark Options</h4>
-<p>Action options are specified with the <code class="inlinehilite language-text">options</code> key.</p>
-<h5 id="required-parameters_1">Required Parameters:</h5>
-<pre><code class="js">&quot;options&quot;: {&quot;key&quot;: &quot;name&quot;}
-</code></pre>
+
+<p>Highlight style (solid|underline|outline). Default is <code>outline</code>.</p>
+<h3 id="unmark-override"><a name="user-content-unmark-override" href="#unmark-override" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Unmark Override</h3>
+<div class="codehilite"><pre><span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;unmark&quot;</span>
+</pre></div>
+
+
+<p>This action removes the highlights of a given <code>key</code>.  Replacements can be omitted with this command.</p>
+<h4 id="unmark-options"><a name="user-content-unmark-options" href="#unmark-options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Unmark Options</h4>
+<p>Action options are specified with the <code>options</code> key.</p>
+<h5 id="required-parameters_1"><a name="user-content-required-parameters_1" href="#required-parameters_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Required Parameters:</h5>
+<div class="codehilite"><pre><span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">}</span>
+</pre></div>
+
 
 <p>unique name of highlighted regions to clear</p>
-<h2 id="multi-pass">Multi-Pass</h2>
+<h2 id="multi-pass"><a name="user-content-multi-pass" href="#multi-pass" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Multi-Pass</h2>
 <p>Sometimes a regular expression cannot be made to find all instances in one pass.  In this case, you can use the multi-pass option.</p>
-<p>Multi-pass cannot be paired with override actions (it will be ignored), but it can be paired with <code class="inlinehilite language-text">find_only</code>.  Multi-pass will sweep the file repeatedly until all instances are found and replaced.  To protect against poorly constructed multi-pass regex looping forever, there is a default max sweep threshold that will cause the sequence to kick out if it is reached.  This threshold can be tweaked in the settings file.</p>
-<pre><code class="javascript">    {
-        &quot;caption&quot;: &quot;Reg Replace: Remove Trailing Spaces&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {&quot;replacements&quot;: [&quot;example&quot;], &quot;multi_pass&quot;: true}
-    },
-</code></pre>
+<p>Multi-pass cannot be paired with override actions (it will be ignored), but it can be paired with <code>find_only</code>.  Multi-pass will sweep the file repeatedly until all instances are found and replaced.  To protect against poorly constructed multi-pass regex looping forever, there is a default max sweep threshold that will cause the sequence to kick out if it is reached.  This threshold can be tweaked in the settings file.</p>
+<div class="codehilite"><pre>    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove Trailing Spaces&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;example&quot;</span><span class="p">],</span> <span class="s2">&quot;multi_pass&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">}</span>
+    <span class="p">},</span>
+</pre></div>
 
-<h2 id="replace-only-under-selections">Replace Only Under Selection(s)</h2>
-<p>Sometimes you only want to search under selections.  This can be done by enabling the <code class="inlinehilite language-text">selection_only</code> setting in the settings file.  By enabling this setting, regex targets will be limited to the current selection if and only if a selection exists.  Auto replace/highlight on save events ignore this setting.  If you have a command that you wish to ignore this setting, just set the <code class="inlinehilite language-text">no_selection</code> argument to <code class="inlinehilite language-text">true</code>.  Highlight style will be forced to underline under selections if <code class="inlinehilite language-text">find_only</code> is set to ensure they will show up.</p>
-<pre><code class="javascript">    // Ignore &quot;selection_only&quot; setting
-    {
-        &quot;caption&quot;: &quot;Reg Replace: Remove Trailing Spaces&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {&quot;replacements&quot;: [&quot;example&quot;], &quot;multi_pass&quot;: true, &quot;no_selection&quot;: true}
-    },
-</code></pre>
 
-<h2 id="use-regex-on-entire-file-buffer-when-using-selections">Use Regex on Entire File Buffer when Using Selections</h2>
-<p>Sometimes you might have a regex chain that lends itself better to performing the regex on the entire file buffer and then pick the matches under the selections as opposed to the default behavior of applying the regex directly to the selection buffer.  To do this, you can use the option <code class="inlinehilite language-text">regex_full_file_with_selections</code>.</p>
-<pre><code class="javascript">    {
-        &quot;caption&quot;: &quot;Remove: All Comments&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {
-            &quot;replacements&quot;: [
-                &quot;remove_comments&quot;, &quot;remove_trailing_spaces&quot;,
-                &quot;remove_excessive_newlines&quot;, &quot;ensure_newline_at_file_end&quot;
-            ],
-            &quot;find_only&quot;: true,
-            &quot;regex_full_file_with_selections&quot;: true
-        }
-    },
-</code></pre>
+<h2 id="replace-only-under-selections"><a name="user-content-replace-only-under-selections" href="#replace-only-under-selections" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Replace Only Under Selection(s)</h2>
+<p>Sometimes you only want to search under selections.  This can be done by enabling the <code>selection_only</code> setting in the settings file.  By enabling this setting, regex targets will be limited to the current selection if and only if a selection exists.  Auto replace/highlight on save events ignore this setting.  If you have a command that you wish to ignore this setting, just set the <code>no_selection</code> argument to <code>true</code>.  Highlight style will be forced to underline under selections if <code>find_only</code> is set to ensure they will show up.</p>
+<div class="codehilite"><pre>    <span class="c1">// Ignore &quot;selection_only&quot; setting</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove Trailing Spaces&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;example&quot;</span><span class="p">],</span> <span class="s2">&quot;multi_pass&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;no_selection&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">}</span>
+    <span class="p">},</span>
+</pre></div>
 
-<h2 id="apply-regex-right-before-file-save-event">Apply Regex Right Before File Save Event</h2>
-<p>If you want to automatically apply a sequence right before a file saves, you can define sequences in the reg_replace.sublime-settings file.  Each &ldquo;on save&rdquo; sequence will be applied to the files you specify by file patterns or file regex.  Also, you must have <code class="inlinehilite language-text">on_save</code> set to <code class="inlinehilite language-text">true</code>.  You can also just highlight, fold, or unfold by regex by adding the <code class="inlinehilite language-text">&quot;action&quot;: &quot;mark&quot;</code> key/value pair (options are mark, fold, and unfold). Both types can be used at the same time. Actions are performed after replacements.</p>
+
+<h2 id="use-regex-on-entire-file-buffer-when-using-selections"><a name="user-content-use-regex-on-entire-file-buffer-when-using-selections" href="#use-regex-on-entire-file-buffer-when-using-selections" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Use Regex on Entire File Buffer when Using Selections</h2>
+<p>Sometimes you might have a regex chain that lends itself better to performing the regex on the entire file buffer and then pick the matches under the selections as opposed to the default behavior of applying the regex directly to the selection buffer.  To do this, you can use the option <code>regex_full_file_with_selections</code>.</p>
+<div class="codehilite"><pre>    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Remove: All Comments&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="s2">&quot;remove_comments&quot;</span><span class="p">,</span> <span class="s2">&quot;remove_trailing_spaces&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;remove_excessive_newlines&quot;</span><span class="p">,</span> <span class="s2">&quot;ensure_newline_at_file_end&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;find_only&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;regex_full_file_with_selections&quot;</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+</pre></div>
+
+
+<h2 id="apply-regex-right-before-file-save-event"><a name="user-content-apply-regex-right-before-file-save-event" href="#apply-regex-right-before-file-save-event" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Apply Regex Right Before File Save Event</h2>
+<p>If you want to automatically apply a sequence right before a file saves, you can define sequences in the reg_replace.sublime-settings file.  Each &ldquo;on save&rdquo; sequence will be applied to the files you specify by file patterns or file regex.  Also, you must have <code>on_save</code> set to <code>true</code>.  You can also just highlight, fold, or unfold by regex by adding the <code>&quot;action&quot;: &quot;mark&quot;</code> key/value pair (options are mark, fold, and unfold). Both types can be used at the same time. Actions are performed after replacements.</p>
 <p>Example:</p>
-<pre><code class="javascript">    // If on_save is true, RegReplace will search through the file patterns listed below right before a file is saved,
-    // if the file name matches a file pattern, the sequence will be applied before the file is saved.
-    // RegReplace will apply all sequences that apply to a given file in the order they appear below.
-    &quot;on_save&quot;: true,
+<div class="codehilite"><pre>    <span class="c1">// If on_save is true, RegReplace will search through the file patterns listed below right before a file is saved,</span>
+    <span class="c1">// if the file name matches a file pattern, the sequence will be applied before the file is saved.</span>
+    <span class="c1">// RegReplace will apply all sequences that apply to a given file in the order they appear below.</span>
+    <span class="s2">&quot;on_save&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 
-    // Highlight visual settings
-    &quot;on_save_highlight_scope&quot;: &quot;invalid&quot;,
-    &quot;on_save_highlight_style&quot;: &quot;outline&quot;,
+    <span class="c1">// Highlight visual settings</span>
+    <span class="s2">&quot;on_save_highlight_scope&quot;</span><span class="o">:</span> <span class="s2">&quot;invalid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;on_save_highlight_style&quot;</span><span class="o">:</span> <span class="s2">&quot;outline&quot;</span><span class="p">,</span>
 
-    &quot;on_save_sequences&quot;: [
-        // An example on_save event that removes dangling commas from json files
-        // - file_regex: an array of regex strings that must match the file for the sequence to be applied
-        // - case: regex case sensitivity (true|false) false is default (this setting is optional)
-        // - file_pattern: an array of file patterns that must match for the sequence to be applied
-        // - sequence: an array of replacement definitions to be applied on saving the file
-        // - multi_pass: perform multiple passes on file to catch all regex instances
-        {
-            &quot;file_regex&quot;: [&quot;.*\\.sublime-(settings|commands|menu|keymap|mousemap|theme|build|project|completions|commands)&quot;],
-            &quot;file_pattern&quot;: [&quot;*.json&quot;],
-            &quot;sequence&quot;: [&quot;remove_json_dangling_commas&quot;]
-        },
-        // An example on_save_sequence that targets all files and highlights trailing spaces
-        // - file_pattern: an array of file patterns that must match for the sequence to be applied
-        // - sequence: an array of replacement definitions to be applied on saving the file
-        // - action: (mark|fold|unfold) instead of replace
-        {
-            &quot;file_pattern&quot;: [&quot;*&quot;],
-            &quot;sequence&quot;: [&quot;remove_trailing_spaces&quot;],
-            &quot;action&quot;: &quot;mark&quot;
-        }
-    ],
-</code></pre>
+    <span class="s2">&quot;on_save_sequences&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="c1">// An example on_save event that removes dangling commas from json files</span>
+        <span class="c1">// - file_regex: an array of regex strings that must match the file for the sequence to be applied</span>
+        <span class="c1">// - case: regex case sensitivity (true|false) false is default (this setting is optional)</span>
+        <span class="c1">// - file_pattern: an array of file patterns that must match for the sequence to be applied</span>
+        <span class="c1">// - sequence: an array of replacement definitions to be applied on saving the file</span>
+        <span class="c1">// - multi_pass: perform multiple passes on file to catch all regex instances</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;file_regex&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;.*\\.sublime-(settings|commands|menu|keymap|mousemap|theme|build|project|completions|commands)&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;file_pattern&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;*.json&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;sequence&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;remove_json_dangling_commas&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="c1">// An example on_save_sequence that targets all files and highlights trailing spaces</span>
+        <span class="c1">// - file_pattern: an array of file patterns that must match for the sequence to be applied</span>
+        <span class="c1">// - sequence: an array of replacement definitions to be applied on saving the file</span>
+        <span class="c1">// - action: (mark|fold|unfold) instead of replace</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;file_pattern&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;sequence&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;remove_trailing_spaces&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;mark&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+</pre></div>
 
-<h2 id="custom-replace-plugins">Custom Replace Plugins</h2>
+
+<h2 id="custom-replace-plugins"><a name="user-content-custom-replace-plugins" href="#custom-replace-plugins" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Custom Replace Plugins</h2>
 <p>There are times that simple regular expression and replace is not enough.  Since RegReplace uses Python&rsquo;s re regex engine, we can use python code to intercept the replace and do more complex things via a plugin.</p>
 <p>In this example we are going to search for dates with the form YYYYMMDD and increment them by one day.</p>
-<p>Here is the regex rule, notice we have defined a plugin to replace.  Plugins are defined as if you were importing a module in python.  So in this example, we are loading it from the <code class="inlinehilite language-text">User</code> package. You do not need an <code class="inlinehilite language-text">__init__.py</code> file in <code class="inlinehilite language-text">rr_modules</code> folder; it is recommended to not use one as Sublime shouldn&rsquo;t bother loading these files as RegReplace will load them when needed.</p>
-<pre><code class="js">&quot;date_up&quot;: {
-    &quot;find&quot;: &quot;(?P&lt;year&gt;\\d{4})(?P&lt;month&gt;\\d{2})(?P&lt;day&gt;\\d{2})&quot;,
-    &quot;plugin&quot;: &quot;User.rr_modules.date_up&quot;
-    // &quot;args&quot;: {&quot;some_plugin_arguments&quot;: &quot;if_desired&quot;}  &lt;== optional plugin arguments
-}
-</code></pre>
+<p>Here is the regex rule, notice we have defined a plugin to replace.  Plugins are defined as if you were importing a module in python.  So in this example, we are loading it from the <code>User</code> package. You do not need an <code>__init__.py</code> file in <code>rr_modules</code> folder; it is recommended to not use one as Sublime shouldn&rsquo;t bother loading these files as RegReplace will load them when needed.</p>
+<div class="codehilite"><pre><span class="s2">&quot;date_up&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;find&quot;</span><span class="o">:</span> <span class="s2">&quot;(?P&lt;year&gt;\\d{4})(?P&lt;month&gt;\\d{2})(?P&lt;day&gt;\\d{2})&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;plugin&quot;</span><span class="o">:</span> <span class="s2">&quot;User.rr_modules.date_up&quot;</span>
+    <span class="c1">// &quot;args&quot;: {&quot;some_plugin_arguments&quot;: &quot;if_desired&quot;}  &lt;== optional plugin arguments</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>Next we can define the command that will utilize the regex rule:</p>
-<pre><code class="js">    {
-        &quot;caption&quot;: &quot;Replace: Date Up&quot;,
-        &quot;command&quot;: &quot;reg_replace&quot;,
-        &quot;args&quot;: {&quot;replacements&quot;: [&quot;date_up&quot;], &quot;find_only&quot;: true}
-    },
-</code></pre>
-
-<p>Lastly we can provide the plugin.  RegReplace will load the plugin and look for a function called <code class="inlinehilite language-text">replace</code>.  <code class="inlinehilite language-text">replace</code> takes a python re match object, and any arguments you want to feed it (arguments are defined in the regex rule as shown above):</p>
-<pre><code class="python">SHORT_MONTH = 30
-LONG_MONTH = 31
-FEB_MONTH = 28
-FEB_LEAP_MONTH = 29
-
-JAN = 1
-FEB = 2
-MAR = 3
-APR = 4
-MAY = 5
-JUN = 6
-JUL = 7
-AUG = 8
-SEP = 9
-OCT = 10
-NOV = 11
-DEC = 12
+<div class="codehilite"><pre>    <span class="p">{</span>
+        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Replace: Date Up&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;replacements&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;date_up&quot;</span><span class="p">],</span> <span class="s2">&quot;find_only&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">}</span>
+    <span class="p">},</span>
+</pre></div>
 
 
-def is_leap_year(year):
-    return ((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0)
+<p>Lastly we can provide the plugin.  RegReplace will load the plugin and look for a function called <code>replace</code>.  <code>replace</code> takes a python re match object, and any arguments you want to feed it (arguments are defined in the regex rule as shown above):</p>
+<div class="codehilite"><pre><span class="n">SHORT_MONTH</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">LONG_MONTH</span> <span class="o">=</span> <span class="mi">31</span>
+<span class="n">FEB_MONTH</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">FEB_LEAP_MONTH</span> <span class="o">=</span> <span class="mi">29</span>
+
+<span class="n">JAN</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">FEB</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MAR</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">APR</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">MAY</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">JUN</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">JUL</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">AUG</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">SEP</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">OCT</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">NOV</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">DEC</span> <span class="o">=</span> <span class="mi">12</span>
 
 
-def days_in_months(month, year):
-    days = LONG_MONTH
-    if month == FEB:
-        days = FEB_LEAP_MONTH if is_leap_year(year) else FEB_MONTH
-    elif month in [SEP, APR, JUN, NOV]:
-        days = SHORT_MONTH
-    return days
+<span class="k">def</span> <span class="nf">is_leap_year</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 
 
-def increment_by_day(day, month, year):
-    mdays = days_in_months(month, year)
-    if day == mdays:
-        day = 1
-        if month == DEC:
-            month = JAN
-            year += 1
-        else:
-            month += 1
-    else:
-        day += 1
-
-    return day, month, year
+<span class="k">def</span> <span class="nf">days_in_months</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+    <span class="n">days</span> <span class="o">=</span> <span class="n">LONG_MONTH</span>
+    <span class="k">if</span> <span class="n">month</span> <span class="o">==</span> <span class="n">FEB</span><span class="p">:</span>
+        <span class="n">days</span> <span class="o">=</span> <span class="n">FEB_LEAP_MONTH</span> <span class="k">if</span> <span class="n">is_leap_year</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">else</span> <span class="n">FEB_MONTH</span>
+    <span class="k">elif</span> <span class="n">month</span> <span class="ow">in</span> <span class="p">[</span><span class="n">SEP</span><span class="p">,</span> <span class="n">APR</span><span class="p">,</span> <span class="n">JUN</span><span class="p">,</span> <span class="n">NOV</span><span class="p">]:</span>
+        <span class="n">days</span> <span class="o">=</span> <span class="n">SHORT_MONTH</span>
+    <span class="k">return</span> <span class="n">days</span>
 
 
-def replace(m):
-    g = m.groupdict()
-    year = int(g[&quot;year&quot;].lstrip(&quot;0&quot;))
-    month = int(g[&quot;month&quot;].lstrip(&quot;0&quot;))
-    day = int(g[&quot;day&quot;].lstrip(&quot;0&quot;))
+<span class="k">def</span> <span class="nf">increment_by_day</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+    <span class="n">mdays</span> <span class="o">=</span> <span class="n">days_in_months</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="n">mdays</span><span class="p">:</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">month</span> <span class="o">==</span> <span class="n">DEC</span><span class="p">:</span>
+            <span class="n">month</span> <span class="o">=</span> <span class="n">JAN</span>
+            <span class="n">year</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">month</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">day</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    day, month, year = increment_by_day(day, month, year)
+    <span class="k">return</span> <span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span>
 
-    return &quot;%04d%02d%02d&quot; % (year, month, day)
-</code></pre>
+
+<span class="k">def</span> <span class="nf">replace</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="s">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">))</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="s">&quot;month&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">))</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="s">&quot;day&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">))</span>
+
+    <span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="n">increment_by_day</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="s">&quot;</span><span class="si">%04d%02d%02d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+</pre></div>
+
 
 <p>Here is some text to test the example on:</p>
-<pre><code># Test 1: 20140228
+<div class="codehilite"><pre># Test 1: 20140228
 # Test 2: 20141231
 # Test 3: 20140101
-</code></pre>
+</pre></div>
 
-<p>RegReplace comes with a very simple example you can test with found at <code class="inlinehilite language-text">/Packages/RegReplace/rr_modules/example.py</code>.  Imported with <code class="inlinehilite language-text">RegReplace.rr_modules.example</code>.</p>
-<h2 id="extended-back-references">Extended Back References</h2>
-<p>Python&rsquo;s <code class="inlinehilite language-text">re</code> module (which is what RegReplace uses), doesn&rsquo;t support title case back references: <code class="inlinehilite language-text">\u</code>, <code class="inlinehilite language-text">\U</code>, <code class="inlinehilite language-text">\l</code>, <code class="inlinehilite language-text">\L</code>, or <code class="inlinehilite language-text">\E</code>.  This can be a little frustrating when performing certain kinds of replaces where you want to force upper and lower case on certain characters or series of characters.  Well, no worries, extended back references to the rescue!  You can enable extended back references in the settings file:</p>
-<pre><code class="js">    // Use extended back references
-    &quot;extended_back_references&quot;: true
-</code></pre>
 
-<p>It is important to note that there has been a slight modification to the common convention; instead of using <code class="inlinehilite language-text">\u</code> and <code class="inlinehilite language-text">\U</code> for uppercase, we use <code class="inlinehilite language-text">\c</code> and <code class="inlinehilite language-text">\C</code> respectively; python strings reserves <code class="inlinehilite language-text">\u</code> for unicode characters.</p>
+<p>RegReplace comes with a very simple example you can test with found at <code>/Packages/RegReplace/rr_modules/example.py</code>.  Imported with <code>RegReplace.rr_modules.example</code>.</p>
+<h2 id="extended-back-references"><a name="user-content-extended-back-references" href="#extended-back-references" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Extended Back References</h2>
+<p>Python&rsquo;s <code>re</code> module (which is what RegReplace uses), doesn&rsquo;t support title case back references: <code>\u</code>, <code>\U</code>, <code>\l</code>, <code>\L</code>, or <code>\E</code>.  This can be a little frustrating when performing certain kinds of replaces where you want to force upper and lower case on certain characters or series of characters.  Well, no worries, extended back references to the rescue!  You can enable extended back references in the settings file:</p>
+<div class="codehilite"><pre>    <span class="c1">// Use extended back references</span>
+    <span class="s2">&quot;extended_back_references&quot;</span><span class="o">:</span> <span class="kc">true</span>
+</pre></div>
+
+
+<p>It is important to note that there has been a slight modification to the common convention; instead of using <code>\u</code> and <code>\U</code> for uppercase, we use <code>\c</code> and <code>\C</code> respectively; python strings reserves <code>\u</code> for unicode characters.</p>
 <table>
 <thead>
 <tr>
@@ -481,34 +503,34 @@ def replace(m):
 </thead>
 <tbody>
 <tr>
-<td><code class="inlinehilite language-text">\c</code></td>
+<td><code>\c</code></td>
 <td>Uppercase the next character.</td>
 </tr>
 <tr>
-<td><code class="inlinehilite language-text">\l</code></td>
+<td><code>\l</code></td>
 <td>Lowercase the next character.</td>
 </tr>
 <tr>
-<td><code class="inlinehilite language-text">\C</code></td>
-<td>Apply uppercase to all characters until either the end of the string or the end marker <code class="inlinehilite language-text">\E</code> is found.</td>
+<td><code>\C</code></td>
+<td>Apply uppercase to all characters until either the end of the string or the end marker <code>\E</code> is found.</td>
 </tr>
 <tr>
-<td><code class="inlinehilite language-text">\L</code></td>
-<td>Apply lowercase to all characters until either the end of the string or the end marker <code class="inlinehilite language-text">\E</code> is found.</td>
+<td><code>\L</code></td>
+<td>Apply lowercase to all characters until either the end of the string or the end marker <code>\E</code> is found.</td>
 </tr>
 <tr>
-<td><code class="inlinehilite language-text">\E</code></td>
+<td><code>\E</code></td>
 <td>Signal the end of an uppercase or lowercase range.</td>
 </tr>
 </tbody>
 </table>
 <p>Example Usage:</p>
-<pre><code class="js">    &quot;test_case&quot;: {
-        &quot;find&quot;: &quot;([a-z])(?P&lt;somegroup&gt;[a-z]*)((?:_[a-z]+)+)&quot;,
-        &quot;replace&quot;: &quot;\\c\\1\\L\\g&lt;somegroup&gt;\\E\\C\\g&lt;3&gt;\\E&quot;,
-        &quot;greedy&quot;: true
-    }
-</code></pre>
+<div class="codehilite"><pre>    <span class="s2">&quot;test_case&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;find&quot;</span><span class="o">:</span> <span class="s2">&quot;([a-z])(?P&lt;somegroup&gt;[a-z]*)((?:_[a-z]+)+)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;replace&quot;</span><span class="o">:</span> <span class="s2">&quot;\\c\\1\\L\\g&lt;somegroup&gt;\\E\\C\\g&lt;3&gt;\\E&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;greedy&quot;</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+</pre></div>
             </div>
           </div>
           <footer>
@@ -527,13 +549,15 @@ def replace(m):
 
   <div role="contentinfo">
     <p>
-    <!-- Copyright etc -->
+    
+    Copyright &copy; 2011 - 2015 <a href="https://github.com/facelessuser">Isaac Muse</a>
+    
     </p>
   </div>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+    
         </div>
       </div>
 
@@ -553,7 +577,7 @@ def replace(m):
 
 <!--
 MkDocs version  : 0.12.1
-Docs Build Date : 2015-04-21 01:26:23.199348
+Docs Build Date : 2015-04-22 05:03:08.015778
 -->
 </body>
 </html>

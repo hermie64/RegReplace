@@ -65,24 +65,11 @@
             
                 <li class="toctree-l3"><a href="#user-guide">User Guide</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#create-find-and-replace-sequences">Create Find and Replace Sequences</a></li>
+                    <li><a class="toctree-l4" href="#create-find-and-replace-sequences">Create Find and Replace Sequences</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#view-without-replacing">View Without Replacing</a></li>
+                    <li><a class="toctree-l4" href="#view-without-replacing">View Without Replacing</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#override-actions">Override Actions</a></li>
-                
-                    <li><a class="toctree-l4" href="#supported-override-actions">Supported override actions:</a></li>
-                
-                    <li><a class="toctree-l4" href="#fold-override">Fold Override</a></li>
-                
-                    <li><a class="toctree-l4" href="#unfold-override">Unfold Override</a></li>
-                
-                    <li><a class="toctree-l4" href="#mark-override">Mark Override</a></li>
-                
-                    <li><a class="toctree-l4" href="#unmark-override">Unmark Override</a></li>
+                    <li><a class="toctree-l4" href="#override-actions">Override Actions</a></li>
                 
                     <li><a class="toctree-l4" href="#multi-pass">Multi-Pass</a></li>
                 
@@ -104,7 +91,7 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../contributing/">Contributing & Support</a>
+        <a class="" href="../contributing/">Contributing &amp; Support</a>
         
     </li>
 <li>
@@ -155,7 +142,7 @@
                 <h1 class="doctitle" id="user-guide"><a name="user-content-user-guide" href="#user-guide" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>User Guide</h1>
 <p>Configuring and using RegReplace.</p>
 <hr />
-<h1 id="create-find-and-replace-sequences"><a name="user-content-create-find-and-replace-sequences" href="#create-find-and-replace-sequences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Create Find and Replace Sequences</h1>
+<h2 id="create-find-and-replace-sequences"><a name="user-content-create-find-and-replace-sequences" href="#create-find-and-replace-sequences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Create Find and Replace Sequences</h2>
 <p>To use, replacements must be defined in the reg_replace.sublime-settings file.</p>
 <p>There are two kinds of definitions.  The first uses regex to find regions, and then you can use scopes to qualify the regions before applying the replace.</p>
 <div class="codehilite"><pre>    <span class="c1">// Required parameters:</span>
@@ -249,7 +236,7 @@
 </pre></div>
 
 
-<h1 id="view-without-replacing"><a name="user-content-view-without-replacing" href="#view-without-replacing" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>View Without Replacing</h1>
+<h2 id="view-without-replacing"><a name="user-content-view-without-replacing" href="#view-without-replacing" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>View Without Replacing</h2>
 <p>If you would simply like to view what the sequence would find without replacing, you can construct a command to highlight targets without replacing them (each pass could affect the end result, but this just shows all passes without predicting replaces).</p>
 <p>Just add the &ldquo;find_only&rdquo; argument and set it to true.</p>
 <div class="codehilite"><pre>    <span class="p">{</span>
@@ -263,7 +250,7 @@
 <p>A prompt will appear allowing you to replace the highlighted regions.  Regions will be cleared on cancel.</p>
 <p>If for any reason the highlights do not get cleared, you can simply run the &ldquo;RegReplace: Clear Highlights&rdquo; command from the command palette.</p>
 <p>Highlight color and style can be changed in the settings file.</p>
-<h1 id="override-actions"><a name="user-content-override-actions" href="#override-actions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Override Actions</h1>
+<h2 id="override-actions"><a name="user-content-override-actions" href="#override-actions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Override Actions</h2>
 <p>If instead of replacing you would like to do something else, you can override the action. Actions are defined in commands by setting the <code>action</code> parameter.  Some actions may require additional parameters be set in the <code>options</code> parameter.  See examples below.</p>
 <div class="codehilite"><pre>    <span class="p">{</span>
         <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Fold HTML Comments&quot;</span><span class="p">,</span>
@@ -570,7 +557,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing & Support"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing &amp; Support"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>

@@ -143,7 +143,7 @@
 <p>Configuring and using RegReplace.</p>
 <hr />
 <h2 id="create-find-and-replace-sequences"><a name="user-content-create-find-and-replace-sequences" href="#create-find-and-replace-sequences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Create Find and Replace Sequences</h2>
-<p>To use, replacements must be defined in the reg_replace.sublime-settings file.</p>
+<p>To use, replacements must be defined in the <code>reg_replace.sublime-settings</code> file.</p>
 <p>There are two kinds of definitions.  The first uses regex to find regions, and then you can use scopes to qualify the regions before applying the replace.</p>
 <div class="codehilite"><pre>    <span class="c1">// Required parameters:</span>
     <span class="c1">//     find:    Regex description of what you would like to target.</span>
@@ -176,7 +176,7 @@
 </pre></div>
 
 
-<p>The second kind of definition allows you to search for a scope type and then apply regex to the regions to filter the matches and make replaces.</p>
+<p>The second kind of definition allows you to search for a scope type and then apply regex to the regions to filter the matches and make replacements.</p>
 <div class="codehilite"><pre>    <span class="c1">// Required parameters:</span>
     <span class="c1">//     scope:    scope you would like to target</span>
     <span class="c1">//</span>
@@ -209,7 +209,8 @@
 </pre></div>
 
 
-<p>Once you have replacements defined, there are a number of ways you can run a sequence.  One way is to create a command in the command palette by editing/creating a Default.sublime-commands in your User folder and adding your command.  RegReplace comes with its own Default.sublime-commands file and includes some examples showing simple replacement commands and an example showing the chaining of multiple replacements.</p>
+<p>Once you have replacements defined, there are a number of ways you can run a sequence.  One way is to create a command in the command palette by editing/creating a <code>Default.sublime-commands</code> in your <code>User</code> folder and then adding your command(s).</p>
+<p>Basic replacement command:</p>
 <div class="codehilite"><pre>    <span class="p">{</span>
         <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove Trailing Spaces&quot;</span><span class="p">,</span>
         <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
@@ -218,7 +219,7 @@
 </pre></div>
 
 
-<p>Chained replacements in one command</p>
+<p>Chained replacements in one command:</p>
 <div class="codehilite"><pre>    <span class="p">{</span>
         <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove HTML Comments and Trailing Spaces&quot;</span><span class="p">,</span>
         <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
@@ -237,7 +238,7 @@
 
 
 <h2 id="view-without-replacing"><a name="user-content-view-without-replacing" href="#view-without-replacing" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>View Without Replacing</h2>
-<p>If you would simply like to view what the sequence would find without replacing, you can construct a command to highlight targets without replacing them (each pass could affect the end result, but this just shows all passes without predicting replaces).</p>
+<p>If you would simply like to view what the sequence would find without replacing, you can construct a command to highlight targets without replacing them (each pass could affect the end result, but this just shows all passes without predicting the replacements).</p>
 <p>Just add the &ldquo;find_only&rdquo; argument and set it to true.</p>
 <div class="codehilite"><pre>    <span class="p">{</span>
         <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove Trailing Spaces&quot;</span><span class="p">,</span>
@@ -342,7 +343,7 @@
 <p>unique name of highlighted regions to clear</p>
 <h2 id="multi-pass"><a name="user-content-multi-pass" href="#multi-pass" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Multi-Pass</h2>
 <p>Sometimes a regular expression cannot be made to find all instances in one pass.  In this case, you can use the multi-pass option.</p>
-<p>Multi-pass cannot be paired with override actions (it will be ignored), but it can be paired with <code>find_only</code>.  Multi-pass will sweep the file repeatedly until all instances are found and replaced.  To protect against poorly constructed multi-pass regex looping forever, there is a default max sweep threshold that will cause the sequence to kick out if it is reached.  This threshold can be tweaked in the settings file.</p>
+<p>Multi-pass cannot be paired with override actions (it will be ignored), but it can be paired with <code>find_only</code>.  Multi-pass will sweep the file repeatedly until all instances are found and replaced.  To protect against a poorly constructed multi-pass regex looping forever, there is a default max sweep threshold that will cause the sequence to kick out if it is reached.  This threshold can be tweaked in the settings file.</p>
 <div class="codehilite"><pre>    <span class="p">{</span>
         <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove Trailing Spaces&quot;</span><span class="p">,</span>
         <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
@@ -352,7 +353,7 @@
 
 
 <h2 id="replace-only-under-selections"><a name="user-content-replace-only-under-selections" href="#replace-only-under-selections" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Replace Only Under Selection(s)</h2>
-<p>Sometimes you only want to search under selections.  This can be done by enabling the <code>selection_only</code> setting in the settings file.  By enabling this setting, regex targets will be limited to the current selection if and only if a selection exists.  Auto replace/highlight on save events ignore this setting.  If you have a command that you wish to ignore this setting, just set the <code>no_selection</code> argument to <code>true</code>.  Highlight style will be forced to underline under selections if <code>find_only</code> is set to ensure they will show up.</p>
+<p>Sometimes you only want to search under selections.  This can be done by enabling the <code>selection_only</code> setting in the settings file.  By enabling this setting, regex targets will be limited to the current selection if and only if a selection exists.  Auto replace/highlight on save events ignore this setting.  If you have a command that you wish to ignore this setting, just set the <code>no_selection</code> argument to <code>true</code>.  Highlight style will be forced to underline selections if <code>find_only</code> is set to ensure they will show up.</p>
 <div class="codehilite"><pre>    <span class="c1">// Ignore &quot;selection_only&quot; setting</span>
     <span class="p">{</span>
         <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove Trailing Spaces&quot;</span><span class="p">,</span>
@@ -380,7 +381,7 @@
 
 
 <h2 id="apply-regex-right-before-file-save-event"><a name="user-content-apply-regex-right-before-file-save-event" href="#apply-regex-right-before-file-save-event" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Apply Regex Right Before File Save Event</h2>
-<p>If you want to automatically apply a sequence right before a file saves, you can define sequences in the reg_replace.sublime-settings file.  Each &ldquo;on save&rdquo; sequence will be applied to the files you specify by file patterns or file regex.  Also, you must have <code>on_save</code> set to <code>true</code>.  You can also just highlight, fold, or unfold by regex by adding the <code>&quot;action&quot;: &quot;mark&quot;</code> key/value pair (options are mark, fold, and unfold). Both types can be used at the same time. Actions are performed after replacements.</p>
+<p>If you want to automatically apply a sequence right before a file saves, you can define sequences in the <code>reg_replace.sublime-settings</code> file.  Each &ldquo;on save&rdquo; sequence will be applied to the files you specify by file patterns or file regex.  Also, you must have <code>on_save</code> set to <code>true</code>.  You can also just highlight, fold, or unfold by regex by adding the <code>&quot;action&quot;: &quot;mark&quot;</code> key/value pair (supported options are <code>mark</code>, <code>fold</code>, and <code>unfold</code>). Both types can be used at the same time. Actions are performed after replacements.</p>
 <p>Example:</p>
 <div class="codehilite"><pre>    <span class="c1">// If on_save is true, RegReplace will search through the file patterns listed below right before a file is saved,</span>
     <span class="c1">// if the file name matches a file pattern, the sequence will be applied before the file is saved.</span>
@@ -417,9 +418,9 @@
 
 
 <h2 id="custom-replace-plugins"><a name="user-content-custom-replace-plugins" href="#custom-replace-plugins" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Custom Replace Plugins</h2>
-<p>There are times that simple regular expression and replace is not enough.  Since RegReplace uses Python&rsquo;s re regex engine, we can use python code to intercept the replace and do more complex things via a plugin.</p>
+<p>There are times that a simple regular expression and replace is not enough.  Since RegReplace uses Python&rsquo;s re regex engine, we can use python code to intercept the replace and do more complex things via a plugin.</p>
 <p>In this example we are going to search for dates with the form YYYYMMDD and increment them by one day.</p>
-<p>Here is the regex rule, notice we have defined a plugin to replace.  Plugins are defined as if you were importing a module in python.  So in this example, we are loading it from the <code>User</code> package. You do not need an <code>__init__.py</code> file in <code>rr_modules</code> folder; it is recommended to not use one as Sublime shouldn&rsquo;t bother loading these files as RegReplace will load them when needed.</p>
+<p>Below is the regex rule; notice we have defined a plugin to replace.  Plugins are defined as if you were importing a module in python.  So in this example, we are loading it from the <code>User</code> package. You do not need an <code>__init__.py</code> file in <code>rr_modules</code> folder; it is recommended to not use one as Sublime shouldn&rsquo;t bother loading these files as RegReplace will load them when needed.</p>
 <div class="codehilite"><pre><span class="s2">&quot;date_up&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;find&quot;</span><span class="o">:</span> <span class="s2">&quot;(?P&lt;year&gt;\\d{4})(?P&lt;month&gt;\\d{2})(?P&lt;day&gt;\\d{2})&quot;</span><span class="p">,</span>
     <span class="s2">&quot;plugin&quot;</span><span class="o">:</span> <span class="s2">&quot;User.rr_modules.date_up&quot;</span>
@@ -437,7 +438,7 @@
 </pre></div>
 
 
-<p>Lastly we can provide the plugin.  RegReplace will load the plugin and look for a function called <code>replace</code>.  <code>replace</code> takes a python re match object, and any arguments you want to feed it (arguments are defined in the regex rule as shown above):</p>
+<p>Lastly, we can provide the plugin.  RegReplace will load the plugin and look for a function called <code>replace</code>.  <code>replace</code> takes a python re match object, and any arguments you want to feed it.  Arguments are defined in the regex rule as shown above.</p>
 <div class="codehilite"><pre><span class="n">SHORT_MONTH</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">LONG_MONTH</span> <span class="o">=</span> <span class="mi">31</span>
 <span class="n">FEB_MONTH</span> <span class="o">=</span> <span class="mi">28</span>
@@ -506,13 +507,13 @@
 
 <p>RegReplace comes with a very simple example you can test with found at <code>/Packages/RegReplace/rr_modules/example.py</code>.  Imported with <code>RegReplace.rr_modules.example</code>.</p>
 <h2 id="extended-back-references"><a name="user-content-extended-back-references" href="#extended-back-references" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Extended Back References</h2>
-<p>Python&rsquo;s <code>re</code> module (which is what RegReplace uses), doesn&rsquo;t support title case back references: <code>\u</code>, <code>\U</code>, <code>\l</code>, <code>\L</code>, or <code>\E</code>.  This can be a little frustrating when performing certain kinds of replaces where you want to force upper and lower case on certain characters or series of characters.  Well, no worries, extended back references to the rescue!  You can enable extended back references in the settings file:</p>
+<p>Python&rsquo;s <code>re</code> module (which is what RegReplace uses), doesn&rsquo;t support title case back references: <code>\u</code>, <code>\U</code>, <code>\l</code>, <code>\L</code>, or <code>\E</code>.  This can be a little frustrating when performing certain kinds of replacements in which you want to force upper and lower case on certain characters or series of characters.  Well, no worries, extended back references to the rescue!  You can enable extended back references in the settings file:</p>
 <div class="codehilite"><pre>    <span class="c1">// Use extended back references</span>
     <span class="s2">&quot;extended_back_references&quot;</span><span class="o">:</span> <span class="kc">true</span>
 </pre></div>
 
 
-<p>It is important to note that there has been a slight modification to the common convention; instead of using <code>\u</code> and <code>\U</code> for uppercase, we use <code>\c</code> and <code>\C</code> respectively; python strings reserves <code>\u</code> for Unicode characters.</p>
+<p>It is important to note that there has been a slight modification to the common convention; instead of using <code>\u</code> and <code>\U</code> for uppercase, we use <code>\c</code> and <code>\C</code> respectively (just think &ldquo;capitalize&rdquo; instead of &ldquo;uppercase&rdquo;); python strings reserves <code>\u</code> for Unicode characters, so it is not possible to use <code>u</code> and <code>U</code> in the notation.</p>
 <table>
 <thead>
 <tr>

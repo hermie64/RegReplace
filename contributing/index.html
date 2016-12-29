@@ -168,15 +168,17 @@
 <p>Please <strong>read the documentation</strong> and <strong>search the issue tracker</strong> to try to find the answer to your question <strong>before</strong> posting an issue.</p>
 </li>
 <li>
+<p>When an issue is created, a <a href="https://github.com/facelessuser/RegReplace/blob/master/.github/ISSUE_TEMPLATE.md">template</a> will be shown, please fill out the appropriate sections. If the template is not followed, the issue will be marked <code>Invalid</code> and closed.</p>
+</li>
+<li>
 <p>When creating an issue on the repository, please provide as much info as possible:</p>
 <ul>
-<li>Sublime Text build.</li>
-<li>Operating system.</li>
+<li>Provide environment information by running <code>Preferences-&gt;Package Settings-&gt;RegReplace-&gt;Support Info</code>.  The information will be copied to the clipboard; paste the info in issue.</li>
 <li>Errors in console.</li>
 <li>Detailed description of the problem.</li>
 <li>Examples for reproducing the error.  You can post pictures, but if specific text or code is required to reproduce the issue, please provide the text in a plain text format for easy copy/paste.</li>
 </ul>
-<p>The more info provided the greater the chance someone will take the time to answer, implement, or fix the issue.</p>
+<p>The more info provided, the greater the chance someone will take the time to answer, implement, or fix the issue.</p>
 </li>
 <li>
 <p>Be prepared to answer questions and provide additional information if required.  Issues in which the creator refuses to respond to follow up questions will be marked as stale and closed.</p>
@@ -204,13 +206,13 @@
 <p>As <abbr title="Sublime Text 3">ST3</abbr> is the only current, actively supported version, Python 3.3 must be used to validate the tests.</p>
 </li>
 <li>
-<p>Unit tests are run with <code>nose</code>.  You can install nose via:</p>
-<div class="codehilite"><pre><span></span>pip install nose
+<p>Unit tests are run with <code>pytest</code>.  You can install pytest via:</p>
+<div class="codehilite"><pre><span></span>pip install pytest
 </pre></div>
 
 
 <p>The tests should be run from the root folder of the plugin by using the following command:</p>
-<div class="codehilite"><pre><span></span>nosetests .
+<div class="codehilite"><pre><span></span>py.test .
 </pre></div>
 
 

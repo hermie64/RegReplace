@@ -1,159 +1,700 @@
+
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>User Guide - RegReplace Documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-  <link href="../css/theme_custom.css" rel="stylesheet">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "User Guide";
-    var mkdocs_page_input_path = "usage.md";
-    var mkdocs_page_url = "/usage/";
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script> 
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
+<html class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> RegReplace Documentation</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-  </form>
-</div>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Sublime Text plugin for creating regex sequences.">
+      
+      
+      
+      
+        <link rel="shortcut icon" href="../assets/images/favicon.ico">
+      
+      <meta name="generator" content="mkdocs+mkdocs-material#1.0.0">
+    
+    
+      
+        <title>User Guide - RegReplace Documentation</title>
+      
+    
+    
+      <script src="../assets/javascripts/modernizr-facb31f4a3.js"></script>
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application-ff220fd69d.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-02ce7adcc2.palette.css">
+      
+      
+        <link rel="stylesheet" href="../extra.css">
+      
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="RegReplace Documentation" class="md-icon  md-icon--home  md-header-nav__icon">
+          
+        </a>
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">About RegReplace</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../installation/">Installation</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">User Guide</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#user-guide">User Guide</a></li>
-                
-                    <li><a class="toctree-l4" href="#create-find-and-replace-sequences">Create Find and Replace Sequences</a></li>
-                
-                    <li><a class="toctree-l4" href="#a-better-way-to-create-regex-rules">A Better Way To Create Regex Rules</a></li>
-                
-                    <li><a class="toctree-l4" href="#view-without-replacing">View Without Replacing</a></li>
-                
-                    <li><a class="toctree-l4" href="#override-actions">Override Actions</a></li>
-                
-                    <li><a class="toctree-l4" href="#multi-pass">Multi-Pass</a></li>
-                
-                    <li><a class="toctree-l4" href="#replace-only-under-selections">Replace Only Under Selection(s)</a></li>
-                
-                    <li><a class="toctree-l4" href="#use-regular-expressions-on-entire-file-buffer-when-using-selections">Use Regular Expressions on Entire File Buffer when Using Selections</a></li>
-                
-                    <li><a class="toctree-l4" href="#apply-regular-expressions-right-before-file-save-event">Apply Regular Expressions Right Before File Save Event</a></li>
-                
-                    <li><a class="toctree-l4" href="#custom-replace-plugins">Custom Replace Plugins</a></li>
-                
-                    <li><a class="toctree-l4" href="#regex-module">Regex Module</a></li>
-                
-                    <li><a class="toctree-l4" href="#extended-back-references">Extended Back References</a></li>
-                
-            
-            </ul>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../contributing/">Contributing &amp; Support</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../license/">License</a>
-        
-    </li>
-<li>
-          
-        </ul>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__icon" for="drawer"></label>
       </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">RegReplace Documentation</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>User Guide</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/facelessuser/RegReplace/edit/master/docs/usage.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
               
-                <h1 class="doctitle" id="user-guide"><a name="user-content-user-guide" href="#user-guide" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>User Guide</h1>
-<p>Configuring and using RegReplace.</p>
-<hr />
-<div class="admonition warning">
-<p class="admonition-title">Regular Expression Engine</p>
-<p>Remember that the regular expression engine that is used is Python&rsquo;s <a href="https://docs.python.org/3.4/library/re.html">re</a>, not Sublime&rsquo;s internal regular expression engine.  If enabling <code>extended_back_references</code>, additional syntax is added which is covered in the <a href="http://facelessuser.github.io/backrefs/usage/">backrefs documentation</a>.</p>
-<p>To enable such features as case insensitivity or dotall, see <a href="https://docs.python.org/3.4/library/re.html">re&rsquo;s documentation</a>.</p>
+            
+            User Guide
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__icon" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <div class="md-search__overlay"></div>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+      <label class="md-icon md-search__icon" for="search"></label>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result"></div>
+      </div>
+    </div>
+  </div>
 </div>
-<h2 id="create-find-and-replace-sequences"><a name="user-content-create-find-and-replace-sequences" href="#create-find-and-replace-sequences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Create Find and Replace Sequences</h2>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+              
+
+
+  
+
+
+  <a href="https://github.com/facelessuser/RegReplace" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+            
+          </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <i class="md-icon  md-icon--home  md-nav__icon">
+      
+    </i>
+    RegReplace Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/facelessuser/RegReplace" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  <li class="md-nav__item">
+    
+      <a href=".." title="About RegReplace" class="md-nav__link">
+        About RegReplace
+      </a>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
+      <a href="../installation/" title="Installation" class="md-nav__link">
+        Installation
+      </a>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        User Guide
+      </label>
+    
+    <a href="./" title="User Guide" class="md-nav__link md-nav__link--active">
+      User Guide
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-find-and-replace-sequences" title="Create Find and Replace Sequences" class="md-nav__link">
+    Create Find and Replace Sequences
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-better-way-to-create-regex-rules" title="A Better Way To Create Regex Rules" class="md-nav__link">
+    A Better Way To Create Regex Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-without-replacing" title="View Without Replacing" class="md-nav__link">
+    View Without Replacing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#override-actions" title="Override Actions" class="md-nav__link">
+    Override Actions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-override-actions" title="Supported override actions:" class="md-nav__link">
+    Supported override actions:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fold-override" title="Fold Override" class="md-nav__link">
+    Fold Override
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unfold-override" title="Unfold Override" class="md-nav__link">
+    Unfold Override
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark-override" title="Mark Override" class="md-nav__link">
+    Mark Override
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mark-options" title="Mark Options" class="md-nav__link">
+    Mark Options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters" title="Required Parameters:" class="md-nav__link">
+    Required Parameters:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-parameters" title="Optional Parameters:" class="md-nav__link">
+    Optional Parameters:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unmark-override" title="Unmark Override" class="md-nav__link">
+    Unmark Override
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unmark-options" title="Unmark Options" class="md-nav__link">
+    Unmark Options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters_1" title="Required Parameters:" class="md-nav__link">
+    Required Parameters:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-override" title="Select Override" class="md-nav__link">
+    Select Override
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-pass" title="Multi-Pass" class="md-nav__link">
+    Multi-Pass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replace-only-under-selections" title="Replace Only Under Selection(s)" class="md-nav__link">
+    Replace Only Under Selection(s)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-regular-expressions-on-entire-file-buffer-when-using-selections" title="Use Regular Expressions on Entire File Buffer when Using Selections" class="md-nav__link">
+    Use Regular Expressions on Entire File Buffer when Using Selections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apply-regular-expressions-right-before-file-save-event" title="Apply Regular Expressions Right Before File Save Event" class="md-nav__link">
+    Apply Regular Expressions Right Before File Save Event
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-replace-plugins" title="Custom Replace Plugins" class="md-nav__link">
+    Custom Replace Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regex-module" title="Regex Module" class="md-nav__link">
+    Regex Module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-back-references" title="Extended Back References" class="md-nav__link">
+    Extended Back References
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-the-latest-backrefs" title="Getting the Latest Backrefs" class="md-nav__link">
+    Getting the Latest Backrefs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-backrefs-in-regreplace-plugin" title="Using Backrefs in RegReplace Plugin" class="md-nav__link">
+    Using Backrefs in RegReplace Plugin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
+      <a href="../contributing/" title="Contributing &amp; Support" class="md-nav__link">
+        Contributing &amp; Support
+      </a>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
+      <a href="../license/" title="License" class="md-nav__link">
+        License
+      </a>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-find-and-replace-sequences" title="Create Find and Replace Sequences" class="md-nav__link">
+    Create Find and Replace Sequences
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-better-way-to-create-regex-rules" title="A Better Way To Create Regex Rules" class="md-nav__link">
+    A Better Way To Create Regex Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-without-replacing" title="View Without Replacing" class="md-nav__link">
+    View Without Replacing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#override-actions" title="Override Actions" class="md-nav__link">
+    Override Actions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-override-actions" title="Supported override actions:" class="md-nav__link">
+    Supported override actions:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fold-override" title="Fold Override" class="md-nav__link">
+    Fold Override
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unfold-override" title="Unfold Override" class="md-nav__link">
+    Unfold Override
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark-override" title="Mark Override" class="md-nav__link">
+    Mark Override
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mark-options" title="Mark Options" class="md-nav__link">
+    Mark Options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters" title="Required Parameters:" class="md-nav__link">
+    Required Parameters:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-parameters" title="Optional Parameters:" class="md-nav__link">
+    Optional Parameters:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unmark-override" title="Unmark Override" class="md-nav__link">
+    Unmark Override
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unmark-options" title="Unmark Options" class="md-nav__link">
+    Unmark Options
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters_1" title="Required Parameters:" class="md-nav__link">
+    Required Parameters:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-override" title="Select Override" class="md-nav__link">
+    Select Override
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-pass" title="Multi-Pass" class="md-nav__link">
+    Multi-Pass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replace-only-under-selections" title="Replace Only Under Selection(s)" class="md-nav__link">
+    Replace Only Under Selection(s)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-regular-expressions-on-entire-file-buffer-when-using-selections" title="Use Regular Expressions on Entire File Buffer when Using Selections" class="md-nav__link">
+    Use Regular Expressions on Entire File Buffer when Using Selections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apply-regular-expressions-right-before-file-save-event" title="Apply Regular Expressions Right Before File Save Event" class="md-nav__link">
+    Apply Regular Expressions Right Before File Save Event
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-replace-plugins" title="Custom Replace Plugins" class="md-nav__link">
+    Custom Replace Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regex-module" title="Regex Module" class="md-nav__link">
+    Regex Module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-back-references" title="Extended Back References" class="md-nav__link">
+    Extended Back References
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-the-latest-backrefs" title="Getting the Latest Backrefs" class="md-nav__link">
+    Getting the Latest Backrefs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-backrefs-in-regreplace-plugin" title="Using Backrefs in RegReplace Plugin" class="md-nav__link">
+    Using Backrefs in RegReplace Plugin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+               
+                 <a href="https://github.com/facelessuser/RegReplace/edit/master/docs/usage.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+               
+              
+                
+                  <h1>User Guide</h1>
+                
+                <div class="admonition warning">
+<p class="admonition-title">Regular Expression Engine</p>
+<p>Remember that the regular expression engine that is used is Python's [re][re], not Sublime's internal regular expression engine.  If enabling <code>extended_back_references</code>, additional syntax is added which is covered in the [backrefs documentation][backrefs].</p>
+<p>To enable such features as case insensitivity or dotall, see <a href="https://docs.python.org/3.4/library/re.html">re's documentation</a>.</p>
+</div>
+<h2 id="create-find-and-replace-sequences">Create Find and Replace Sequences<a class="headerlink" href="#create-find-and-replace-sequences" title="Permanent link"></a></h2>
 <p>To use, replacements must be defined in the <code>reg_replace_rules.sublime-settings</code> file.</p>
 <p>There are two types of rules that can be created: scope rules (with optional scope qualifiers) or scope searches that apply regular expressions to the targeted scopes.  We will call these <strong>regex</strong> and <strong>scope regex</strong> rules respectively.</p>
 <p><strong>Regex</strong> rules use regular expressions to find regions, and then you can use scopes to qualify the regions before applying the replace.  These rules can use the following options:</p>
@@ -276,7 +817,7 @@
 </pre></div>
 
 
-<h2 id="a-better-way-to-create-regex-rules"><a name="user-content-a-better-way-to-create-regex-rules" href="#a-better-way-to-create-regex-rules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>A Better Way To Create Regex Rules</h2>
+<h2 id="a-better-way-to-create-regex-rules">A Better Way To Create Regex Rules<a class="headerlink" href="#a-better-way-to-create-regex-rules" title="Permanent link"></a></h2>
 <p>Recently a new feature was added that allows the editing of the regular expression rules to be done in a Python syntax highlighted panel.  This allows for a less cumbersome editing experience.  Users can even split their regular expressions on multiple lines and add comments which will all be preserved for the next time the rule is viewed.</p>
 <p>While in the edit panel, you can press <kbd>ctrl</kbd> + <kbd>s</kbd> on Windows/Linux (or <kbd>super</kbd> + <kbd>s</kbd> on OSX) and the rule will be saved back to the settings file.  On save, the regex is compiled to test if it is valid; if it fails, you should be alerted and the save will be canceled.</p>
 <p>To edit, insert, or delete rules, you can use the following command palette commands:</p>
@@ -285,7 +826,7 @@
 <li>RegReplace: Create New Regular Expression Rule</li>
 <li>RegReplace: Delete Regular Expression Rule</li>
 </ul>
-<p><img alt="edit panel" src="https://dl.dropboxusercontent.com/u/342698/RegReplace/edit_panel.png" /></p>
+<p><img alt="edit panel" src="../imgs/edit_panel.png" /></p>
 <p>You can also test the regular expression from the edit panel.  At the bottom of the panel, you should see the <code>test</code> variable which will allow you to configure a sequence to run from the panel.  Once configured, you can press <kbd>ctrl</kbd> + <kbd>f</kbd> on Windows/Linux (or <kbd>super</kbd> + <kbd>f</kbd> on OSX) to execute.  Keep in mind, you can run the current rule sequenced together with others in the test configuration to test how it plays with other rules.  <code>test</code> is not saved with the other settings, but is only good for the current session.</p>
 <div class="codehilite"><pre><span></span><span class="c1"># ----------------------------------------------------------------------------------------</span>
 <span class="c1"># test: Here you can setup a test command.  This is not saved and is just used for this session.</span>
@@ -295,7 +836,7 @@
 <span class="c1">#       This overrides the default replace action.</span>
 <span class="c1">#     - options (dict): optional parameters for actions (see documentation for more info).</span>
 <span class="c1">#         - key (str): Unique name for highlighted region.</span>
-<span class="c1">#         - scope (str - default=&quot;invalid&quot;): Scope name to use as teh color.</span>
+<span class="c1">#         - scope (str - default=&quot;invalid&quot;): Scope name to use as the color.</span>
 <span class="c1">#         - style (str - default=&quot;outline&quot;): Highlight style (solid|underline|outline).</span>
 <span class="c1">#     - multi_pass (bool): Repeatedly sweep with sequence to find all instances.</span>
 <span class="c1">#     - no_selection (bool): Overrides the &quot;selection_only&quot; setting and forces no selections.</span>
@@ -304,11 +845,11 @@
 </pre></div>
 
 
-<p><img alt="test variable" src="https://dl.dropboxusercontent.com/u/342698/RegReplace/test.png" /></p>
+<p><img alt="test variable" src="../imgs/test.png" /></p>
 <p>Depending on how the test command was configured, it may cause the panel to close, or you might accidentally close it by pressing <kbd>esc</kbd> or running some other command.  When closed, the currently opened rule is not lost and can be brought back by running the command palette command <code>RegReplace: Show Edit Panel</code> (the command will only work if the panel has been opened at least once).  You can also use the panel icon in the bottom left hand corner of the Sublime Text window (only on later versions of Sublime Text 3).</p>
-<h2 id="view-without-replacing"><a name="user-content-view-without-replacing" href="#view-without-replacing" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>View Without Replacing</h2>
+<h2 id="view-without-replacing">View Without Replacing<a class="headerlink" href="#view-without-replacing" title="Permanent link"></a></h2>
 <p>If you would simply like to view what the sequence would find without replacing, you can construct a command to highlight targets without replacing them (each pass could affect the end result, but this just shows all passes without predicting the replacements).</p>
-<p>Just add the &ldquo;find_only&rdquo; argument and set it to true.</p>
+<p>Just add the "find_only" argument and set it to true.</p>
 <div class="codehilite"><pre><span></span>    <span class="p">{</span>
         <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Remove Trailing Spaces&quot;</span><span class="p">,</span>
         <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="s2">&quot;reg_replace&quot;</span><span class="p">,</span>
@@ -318,9 +859,9 @@
 
 
 <p>A prompt will appear allowing you to replace the highlighted regions.  Regions will be cleared on cancel.</p>
-<p>If for any reason the highlights do not get cleared, you can simply run the &ldquo;RegReplace: Clear Highlights&rdquo; command from the command palette.</p>
+<p>If for any reason the highlights do not get cleared, you can simply run the "RegReplace: Clear Highlights" command from the command palette.</p>
 <p>Highlight color and style can be changed in the settings file.</p>
-<h2 id="override-actions"><a name="user-content-override-actions" href="#override-actions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Override Actions</h2>
+<h2 id="override-actions">Override Actions<a class="headerlink" href="#override-actions" title="Permanent link"></a></h2>
 <p>If instead of replacing you would like to do something else, you can override the action. Actions are defined in commands by setting the <code>action</code> parameter.  Some actions may require additional parameters be set in the <code>options</code> parameter.  See examples below.</p>
 <div class="codehilite"><pre><span></span>    <span class="p">{</span>
         <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Reg Replace: Fold HTML Comments&quot;</span><span class="p">,</span>
@@ -352,7 +893,7 @@
 </pre></div>
 
 
-<h3 id="supported-override-actions"><a name="user-content-supported-override-actions" href="#supported-override-actions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Supported override actions:</h3>
+<h3 id="supported-override-actions">Supported override actions:<a class="headerlink" href="#supported-override-actions" title="Permanent link"></a></h3>
 <ul>
 <li>fold</li>
 <li>unfold</li>
@@ -360,33 +901,33 @@
 <li>unmark</li>
 <li>select</li>
 </ul>
-<h3 id="fold-override"><a name="user-content-fold-override" href="#fold-override" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Fold Override</h3>
+<h3 id="fold-override">Fold Override<a class="headerlink" href="#fold-override" title="Permanent link"></a></h3>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;fold&quot;</span>
 </pre></div>
 
 
 <p>This action folds the given find target.  This action has no parameters.</p>
-<h3 id="unfold-override"><a name="user-content-unfold-override" href="#unfold-override" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Unfold Override</h3>
+<h3 id="unfold-override">Unfold Override<a class="headerlink" href="#unfold-override" title="Permanent link"></a></h3>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;unfold&quot;</span>
 </pre></div>
 
 
 <p>This action unfolds the all regions that match the given find target.  This action has no parameters</p>
-<h3 id="mark-override"><a name="user-content-mark-override" href="#mark-override" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Mark Override</h3>
+<h3 id="mark-override">Mark Override<a class="headerlink" href="#mark-override" title="Permanent link"></a></h3>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;mark&quot;</span>
 </pre></div>
 
 
 <p>This action highlights the regions of the given find target.</p>
-<h4 id="mark-options"><a name="user-content-mark-options" href="#mark-options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Mark Options</h4>
+<h4 id="mark-options">Mark Options<a class="headerlink" href="#mark-options" title="Permanent link"></a></h4>
 <p>Action options are specified with the <code>options</code> key.</p>
-<h5 id="required-parameters"><a name="user-content-required-parameters" href="#required-parameters" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Required Parameters:</h5>
+<h5 id="required-parameters">Required Parameters:<a class="headerlink" href="#required-parameters" title="Permanent link"></a></h5>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">}</span>
 </pre></div>
 
 
 <p>Unique name for highlighted regions.</p>
-<h4 id="optional-parameters"><a name="user-content-optional-parameters" href="#optional-parameters" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Optional Parameters:</h4>
+<h4 id="optional-parameters">Optional Parameters:<a class="headerlink" href="#optional-parameters" title="Permanent link"></a></h4>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;scope&quot;</span><span class="o">:</span> <span class="s2">&quot;invalid&quot;</span><span class="p">}</span>
 </pre></div>
 
@@ -397,27 +938,27 @@
 
 
 <p>Highlight style (solid|underline|outline). Default is <code>outline</code>.</p>
-<h3 id="unmark-override"><a name="user-content-unmark-override" href="#unmark-override" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Unmark Override</h3>
+<h3 id="unmark-override">Unmark Override<a class="headerlink" href="#unmark-override" title="Permanent link"></a></h3>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;unmark&quot;</span>
 </pre></div>
 
 
 <p>This action removes the highlights of a given <code>key</code>.  Replacements can be omitted with this command.</p>
-<h4 id="unmark-options"><a name="user-content-unmark-options" href="#unmark-options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Unmark Options</h4>
+<h4 id="unmark-options">Unmark Options<a class="headerlink" href="#unmark-options" title="Permanent link"></a></h4>
 <p>Action options are specified with the <code>options</code> key.</p>
-<h5 id="required-parameters_1"><a name="user-content-required-parameters_1" href="#required-parameters_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Required Parameters:</h5>
+<h5 id="required-parameters_1">Required Parameters:<a class="headerlink" href="#required-parameters_1" title="Permanent link"></a></h5>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">}</span>
 </pre></div>
 
 
 <p>unique name of highlighted regions to clear</p>
-<h3 id="select-override"><a name="user-content-select-override" href="#select-override" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Select Override</h3>
+<h3 id="select-override">Select Override<a class="headerlink" href="#select-override" title="Permanent link"></a></h3>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;select&quot;</span>
 </pre></div>
 
 
 <p>This action selects the regions of the given find target.</p>
-<h2 id="multi-pass"><a name="user-content-multi-pass" href="#multi-pass" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Multi-Pass</h2>
+<h2 id="multi-pass">Multi-Pass<a class="headerlink" href="#multi-pass" title="Permanent link"></a></h2>
 <p>Sometimes a regular expression cannot be made to find all instances in one pass.  In this case, you can use the multi-pass option.  This option will cause the entire sequence to repeatedly executed until all instances are found and replaced.  To protect against a poorly constructed multi-pass regular expression looping forever, there is a default max sweep threshold that will cause the sequence to kick out if it is reached.  This threshold can be tweaked in the settings file.</p>
 <p>Multi-pass is used in replaces and cannot be paired with override actions (it will be ignored), but it can be paired with <code>find_only</code> as <code>find_only</code> allows you to initiate a replace.</p>
 <div class="codehilite"><pre><span></span>    <span class="p">{</span>
@@ -428,7 +969,7 @@
 </pre></div>
 
 
-<h2 id="replace-only-under-selections"><a name="user-content-replace-only-under-selections" href="#replace-only-under-selections" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Replace Only Under Selection(s)</h2>
+<h2 id="replace-only-under-selections">Replace Only Under Selection(s)<a class="headerlink" href="#replace-only-under-selections" title="Permanent link"></a></h2>
 <p>Sometimes you only want to search under selections.  This can be done by enabling the <code>selection_only</code> setting in the settings file.  By enabling this setting, regular expression targets will be limited to the current selection if and only if a selection exists.  Auto replace/highlight on save events ignore this setting.  If you have a command that you wish to ignore this setting, just set the <code>no_selection</code> argument to <code>true</code>.  Highlight style will be forced to underline selections if <code>find_only</code> is set to ensure they will show up.</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">// Ignore &quot;selection_only&quot; setting</span>
     <span class="p">{</span>
@@ -439,7 +980,7 @@
 </pre></div>
 
 
-<h2 id="use-regular-expressions-on-entire-file-buffer-when-using-selections"><a name="user-content-use-regular-expressions-on-entire-file-buffer-when-using-selections" href="#use-regular-expressions-on-entire-file-buffer-when-using-selections" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Use Regular Expressions on Entire File Buffer when Using Selections</h2>
+<h2 id="use-regular-expressions-on-entire-file-buffer-when-using-selections">Use Regular Expressions on Entire File Buffer when Using Selections<a class="headerlink" href="#use-regular-expressions-on-entire-file-buffer-when-using-selections" title="Permanent link"></a></h2>
 <p>When <code>selection_only</code> is enabled, you might have a regular expression chain that lends itself better to performing the regular expression on the entire file buffer and then pick the matches under the selections as opposed to the default behavior of applying the regular expression directly to the selection buffer.  To do this, you can use the option <code>regex_full_file_with_selections</code>.</p>
 <div class="codehilite"><pre><span></span>    <span class="p">{</span>
         <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Remove: All Comments&quot;</span><span class="p">,</span>
@@ -456,8 +997,8 @@
 </pre></div>
 
 
-<h2 id="apply-regular-expressions-right-before-file-save-event"><a name="user-content-apply-regular-expressions-right-before-file-save-event" href="#apply-regular-expressions-right-before-file-save-event" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Apply Regular Expressions Right Before File Save Event</h2>
-<p>If you want to automatically apply a sequence right before a file saves, you can define sequences in the <code>reg_replace.sublime-settings</code> file.  Each &ldquo;on save&rdquo; sequence will be applied to the files you specify by file patterns or file regular expression.  Also, you must have <code>on_save</code> set to <code>true</code>.  You can also just highlight, fold, or unfold by regular expression by adding the <code>&quot;action&quot;: &quot;mark&quot;</code> key/value pair (supported options are <code>mark</code>, <code>fold</code>, and <code>unfold</code>). Both types can be used at the same time. Actions are performed after replacements.</p>
+<h2 id="apply-regular-expressions-right-before-file-save-event">Apply Regular Expressions Right Before File Save Event<a class="headerlink" href="#apply-regular-expressions-right-before-file-save-event" title="Permanent link"></a></h2>
+<p>If you want to automatically apply a sequence right before a file saves, you can define sequences in the <code>reg_replace.sublime-settings</code> file.  Each "on save" sequence will be applied to the files you specify by file patterns or file regular expression.  Also, you must have <code>on_save</code> set to <code>true</code>.  You can also just highlight, fold, or unfold by regular expression by adding the <code>&quot;action&quot;: &quot;mark&quot;</code> key/value pair (supported options are <code>mark</code>, <code>fold</code>, and <code>unfold</code>). Both types can be used at the same time. Actions are performed after replacements.</p>
 <p>Example:</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">// If on_save is true, RegReplace will search through the file patterns listed below right before a file is saved,</span>
     <span class="c1">// if the file name matches a file pattern, the sequence will be applied before the file is saved.</span>
@@ -494,10 +1035,10 @@
 </pre></div>
 
 
-<h2 id="custom-replace-plugins"><a name="user-content-custom-replace-plugins" href="#custom-replace-plugins" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Custom Replace Plugins</h2>
-<p>There are times that a simple regular expression and replace is not enough.  Since RegReplace uses Python&rsquo;s re regular expression engine, we can use python code to intercept the replace and do more complex things via a plugin.  Because this uses Python&rsquo;s re, this will only be applied when doing regular expression searches (not literal searches).</p>
+<h2 id="custom-replace-plugins">Custom Replace Plugins<a class="headerlink" href="#custom-replace-plugins" title="Permanent link"></a></h2>
+<p>There are times that a simple regular expression and replace is not enough.  Since RegReplace uses Python's re regular expression engine, we can use python code to intercept the replace and do more complex things via a plugin.  Because this uses Python's re, this will only be applied when doing regular expression searches (not literal searches).</p>
 <p>In this example we are going to search for dates with the form YYYYMMDD and increment them by one day.</p>
-<p>Below is the regular expression rule; notice we have defined a plugin to replace.  Plugins are defined as if you were importing a module in python.  So in this example, we are loading it from the <code>User</code> package. You do not need an <code>__init__.py</code> file in <code>rr_modules</code> folder; it is recommended to not use one as Sublime shouldn&rsquo;t bother loading these files as RegReplace will load them when needed.</p>
+<p>Below is the regular expression rule; notice we have defined a plugin to replace.  Plugins are defined as if you were importing a module in python.  So in this example, we are loading it from the <code>User</code> package. You do not need an <code>__init__.py</code> file in <code>rr_modules</code> folder; it is recommended to not use one as Sublime shouldn't bother loading these files as RegReplace will load them when needed.</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;date_up&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;find&quot;</span><span class="o">:</span> <span class="s2">&quot;(?P&lt;year&gt;\\d{4})(?P&lt;month&gt;\\d{2})(?P&lt;day&gt;\\d{2})&quot;</span><span class="p">,</span>
     <span class="s2">&quot;plugin&quot;</span><span class="o">:</span> <span class="s2">&quot;User.rr_modules.date_up&quot;</span>
@@ -583,9 +1124,9 @@
 
 
 <p>RegReplace comes with a very simple example you can test with found at <code>/Packages/RegReplace/rr_modules/example.py</code>.  Imported with <code>RegReplace.rr_modules.example</code>.</p>
-<h2 id="regex-module"><a name="user-content-regex-module" href="#regex-module" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Regex Module</h2>
-<p>By default, RegReplace uses Python&rsquo;s <a href="https://docs.python.org/3.3/library/re.html">re</a> module.  But if you prefer the<br />
-more advanced <a href="https://pypi.python.org/pypi/regex">regex</a> regular expression module, you can enable it with the<br />
+<h2 id="regex-module">Regex Module<a class="headerlink" href="#regex-module" title="Permanent link"></a></h2>
+<p>By default, RegReplace uses Python's [re][re] module.  But if you prefer the<br />
+more advanced [regex][regex] regular expression module, you can enable it with the<br />
 following setting:</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">// Use the regex module for regular expression.</span>
     <span class="c1">// https://pypi.python.org/pypi/regex</span>
@@ -600,13 +1141,13 @@ following setting:</p>
 </pre></div>
 
 
-<h2 id="extended-back-references"><a name="user-content-extended-back-references" href="#extended-back-references" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Extended Back References</h2>
-<p>RegReplace uses a special wrapper around Python&rsquo;s re library called backrefs.  Backrefs was written specifically for RegReplace and adds various additional backrefs that are known to some regular expression engines, but not to Python&rsquo;s re.  Backrefs adds: <code>\p</code>, <code>\P</code>, <code>\u</code>, <code>\U</code>, <code>\l</code>, <code>\L</code>, <code>\Q</code> or <code>\E</code> (though <code>\u</code> and <code>\U</code> are replaced with <code>\c</code> and <code>\C</code>).  It even<br />
+<h2 id="extended-back-references">Extended Back References<a class="headerlink" href="#extended-back-references" title="Permanent link"></a></h2>
+<p>RegReplace uses a special wrapper around Python's re library called backrefs.  Backrefs was written specifically for RegReplace and adds various additional backrefs that are known to some regular expression engines, but not to Python's re.  Backrefs adds: <code>\p</code>, <code>\P</code>, <code>\u</code>, <code>\U</code>, <code>\l</code>, <code>\L</code>, <code>\Q</code> or <code>\E</code> (though <code>\u</code> and <code>\U</code> are replaced with <code>\c</code> and <code>\C</code>).  It even<br />
 adds some of the Posix style classes such as <code>[:ascii:]</code> etc.</p>
 <p>Backrefs also works with the regex module, but it enables a smaller portion of back references as the regex module implements a few of the back references already (in one form or the other).  For instance, there was no need to add<br />
 Unicode properties as it was already available. And since you can already use Unicode and/or Posix properties to do<br />
-uppercase and lowercase character classes in search patterns, and regex already reserves <code>\L</code>, it wasn&rsquo;t worth the<br />
-extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, &lsquo;\l&rsquo; and <code>\L</code> to the search back references.</p>
+uppercase and lowercase character classes in search patterns, and regex already reserves <code>\L</code>, it wasn't worth the<br />
+extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, 'l' and <code>\L</code> to the search back references.</p>
 <p>You can enable extended back references in the settings file:</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">// Use extended back references</span>
     <span class="s2">&quot;extended_back_references&quot;</span><span class="o">:</span> <span class="kc">true</span>
@@ -622,10 +1163,10 @@ extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, &lsq
 </pre></div>
 
 
-<p>You can read more about the backrefs&rsquo; features in the <a href="http://facelessuser.github.io/backrefs/">backrefs documentation</a>.</p>
-<h3 id="getting-the-latest-backrefs"><a name="user-content-getting-the-latest-backrefs" href="#getting-the-latest-backrefs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Getting the Latest Backrefs</h3>
-<p>It is not always clear when Package Control updates dependencies.  So to force dependency updates, you can run Package Control&rsquo;s <code>Satisfy Dependencies</code> command which will update to the latest release.</p>
-<h3 id="using-backrefs-in-regreplace-plugin"><a name="user-content-using-backrefs-in-regreplace-plugin" href="#using-backrefs-in-regreplace-plugin" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Using Backrefs in RegReplace Plugin</h3>
+<p>You can read more about the backrefs' features in the [backrefs documentation][backrefs].</p>
+<h3 id="getting-the-latest-backrefs">Getting the Latest Backrefs<a class="headerlink" href="#getting-the-latest-backrefs" title="Permanent link"></a></h3>
+<p>It is not always clear when Package Control updates dependencies.  So to force dependency updates, you can run Package Control's <code>Satisfy Dependencies</code> command which will update to the latest release.</p>
+<h3 id="using-backrefs-in-regreplace-plugin">Using Backrefs in RegReplace Plugin<a class="headerlink" href="#using-backrefs-in-regreplace-plugin" title="Permanent link"></a></h3>
 <p>You can import backrefs into a RegReplace plugin:</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">backrefs</span> <span class="nn">as</span> <span class="nn">bre</span>
 </pre></div>
@@ -636,7 +1177,7 @@ extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, &lsq
 </pre></div>
 
 
-<p>Backrefs does provide a wrapper for all of re&rsquo;s normal functions such as <code>match</code>, <code>sub</code>, etc., but is recommended to pre-compile your search patterns <strong>and</strong> your replace patterns for the best performance; especially if you plan on reusing the same pattern multiple times.  As re does cache a certain amount of the non-compiled calls you will be spared from some of the performance hit, but backrefs does not cache the pre-processing of search and replace patterns.</p>
+<p>Backrefs does provide a wrapper for all of re's normal functions such as <code>match</code>, <code>sub</code>, etc., but is recommended to pre-compile your search patterns <strong>and</strong> your replace patterns for the best performance; especially if you plan on reusing the same pattern multiple times.  As re does cache a certain amount of the non-compiled calls you will be spared from some of the performance hit, but backrefs does not cache the pre-processing of search and replace patterns.</p>
 <p>To use pre-compiled functions, you compile the search pattern with <code>compile_search</code>.  If you want to take advantage of replace backrefs, you need to compile the replace pattern as well.  Notice the compiled pattern is fed into the replace pattern; you can feed the replace compiler the string representation of the search pattern as well, but the compiled pattern will be faster and is the recommended way.</p>
 <div class="codehilite"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">compile_search</span><span class="p">(</span><span class="s1">r&#39;somepattern&#39;</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
 <span class="n">replace</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">compile_replace</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s1">r&#39;\1 some replace pattern&#39;</span><span class="p">)</span>
@@ -667,53 +1208,131 @@ extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, &lsq
     <span class="n">text</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s1">r&#39;replace pattern&#39;</span><span class="p">)</span>
 </pre></div>
               
-            </div>
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2017 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing &amp; Support">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="../installation/"
+              title="Installation"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__icon"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Installation
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="../contributing/" title="Contributing &amp; Support"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Contributing &amp; Support
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__icon"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
 
-  <hr/>
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
 
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-      <p>Copyright &copy; 2011 - 2016 <a href="https://github.com/facelessuser">Isaac Muse</a></p>
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-	  
-        </div>
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 - 2017 <a href="https://github.com/facelessuser">Isaac Muse</a>
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/"
+            title="Material for MkDocs">
+          Material for MkDocs</a>
+        with emoji provided free by
+        <a href="http://www.emojione.com">EmojiOne</a>
       </div>
 
-    </section>
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/facelessuser" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/facelessuser/RegReplace" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+    </div>
+  </div>
+</footer>
       
+    </div>
+    
+      <script src="../assets/javascripts/application-16f434a21a.js"></script>
+      <script>var config={url:{base:".."}},app=new Application(config);app.initialize()</script>
       
-        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+    
+    
       
-      
-        <span style="margin-left: 15px"><a href="../contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script src="../js/theme.js"></script>
-
-</body>
+    
+  </body>
 </html>

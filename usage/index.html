@@ -13,7 +13,7 @@
       
         <link rel="shortcut icon" href="../assets/images/favicon.ico">
       
-      <meta name="generator" content="mkdocs+mkdocs-material#1.0.2">
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.0.5">
     
     
       
@@ -21,7 +21,13 @@
       
     
     
-      <script src="../assets/javascripts/modernizr-facb31f4a3.js"></script>
+      <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application-9c62e3c932.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-02ce7adcc2.palette.css">
+      
     
     
       
@@ -34,13 +40,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application-1b8b9fdf68.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/application-02ce7adcc2.palette.css">
-      
-      
-        <link rel="stylesheet" href="../extra.css">
-      
+      <link rel="stylesheet" href="../extra.css">
     
     
   </head>
@@ -200,230 +200,12 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        User Guide
-      </label>
     
     <a href="./" title="User Guide" class="md-nav__link md-nav__link--active">
       User Guide
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-find-and-replace-sequences" title="Create Find and Replace Sequences" class="md-nav__link">
-    Create Find and Replace Sequences
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-better-way-to-create-regex-rules" title="A Better Way To Create Regex Rules" class="md-nav__link">
-    A Better Way To Create Regex Rules
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#view-without-replacing" title="View Without Replacing" class="md-nav__link">
-    View Without Replacing
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#override-actions" title="Override Actions" class="md-nav__link">
-    Override Actions
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-override-actions" title="Supported override actions:" class="md-nav__link">
-    Supported override actions:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fold-override" title="Fold Override" class="md-nav__link">
-    Fold Override
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unfold-override" title="Unfold Override" class="md-nav__link">
-    Unfold Override
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mark-override" title="Mark Override" class="md-nav__link">
-    Mark Override
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mark-options" title="Mark Options" class="md-nav__link">
-    Mark Options
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#required-parameters" title="Required Parameters:" class="md-nav__link">
-    Required Parameters:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optional-parameters" title="Optional Parameters:" class="md-nav__link">
-    Optional Parameters:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unmark-override" title="Unmark Override" class="md-nav__link">
-    Unmark Override
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unmark-options" title="Unmark Options" class="md-nav__link">
-    Unmark Options
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#required-parameters_1" title="Required Parameters:" class="md-nav__link">
-    Required Parameters:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#select-override" title="Select Override" class="md-nav__link">
-    Select Override
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multi-pass" title="Multi-Pass" class="md-nav__link">
-    Multi-Pass
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#replace-only-under-selections" title="Replace Only Under Selection(s)" class="md-nav__link">
-    Replace Only Under Selection(s)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-regular-expressions-on-entire-file-buffer-when-using-selections" title="Use Regular Expressions on Entire File Buffer when Using Selections" class="md-nav__link">
-    Use Regular Expressions on Entire File Buffer when Using Selections
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#apply-regular-expressions-right-before-file-save-event" title="Apply Regular Expressions Right Before File Save Event" class="md-nav__link">
-    Apply Regular Expressions Right Before File Save Event
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#custom-replace-plugins" title="Custom Replace Plugins" class="md-nav__link">
-    Custom Replace Plugins
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regex-module" title="Regex Module" class="md-nav__link">
-    Regex Module
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extended-back-references" title="Extended Back References" class="md-nav__link">
-    Extended Back References
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getting-the-latest-backrefs" title="Getting the Latest Backrefs" class="md-nav__link">
-    Getting the Latest Backrefs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-backrefs-in-regreplace-plugin" title="Using Backrefs in RegReplace Plugin" class="md-nav__link">
-    Using Backrefs in RegReplace Plugin
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -1179,33 +961,33 @@ extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, 'l' 
 
 <p>Backrefs does provide a wrapper for all of re's normal functions such as <code>match</code>, <code>sub</code>, etc., but is recommended to pre-compile your search patterns <strong>and</strong> your replace patterns for the best performance; especially if you plan on reusing the same pattern multiple times.  As re does cache a certain amount of the non-compiled calls you will be spared from some of the performance hit, but backrefs does not cache the pre-processing of search and replace patterns.</p>
 <p>To use pre-compiled functions, you compile the search pattern with <code>compile_search</code>.  If you want to take advantage of replace backrefs, you need to compile the replace pattern as well.  Notice the compiled pattern is fed into the replace pattern; you can feed the replace compiler the string representation of the search pattern as well, but the compiled pattern will be faster and is the recommended way.</p>
-<div class="codehilite"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">compile_search</span><span class="p">(</span><span class="s1">r&#39;somepattern&#39;</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
-<span class="n">replace</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">compile_replace</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s1">r&#39;\1 some replace pattern&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">compile_search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;somepattern&#39;</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+<span class="n">replace</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">compile_replace</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1 some replace pattern&#39;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Then you can use the complied search pattern and replace</p>
-<div class="codehilite"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">replace</span><span class="p">,</span> <span class="s1">r&#39;sometext&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">replace</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;sometext&#39;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>or</p>
-<div class="codehilite"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">r&#39;sometext&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;sometext&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  <span class="c1"># similar to m.expand(template)</span>
 </pre></div>
 
 
 <p>To use the non-compiled search/replace functions, you call them just them as you would in re; the names are the same.  Methods like <code>sub</code> and <code>subn</code> will compile the replace pattern on the fly if given a string.</p>
-<div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">bre</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s1">r&#39;somepattern&#39;</span><span class="p">,</span> <span class="s1">&#39;some text&#39;</span><span class="p">,</span> <span class="n">bre</span><span class="o">.</span><span class="n">UNICODE</span> <span class="o">|</span> <span class="n">bre</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">bre</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;somepattern&#39;</span><span class="p">,</span> <span class="s1">&#39;some text&#39;</span><span class="p">,</span> <span class="n">bre</span><span class="o">.</span><span class="n">UNICODE</span> <span class="o">|</span> <span class="n">bre</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">):</span>
     <span class="c1"># do something</span>
 </pre></div>
 
 
 <p>If you want to replace without compiling, you can use the <code>expand</code> method.</p>
-<div class="codehilite"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">r&#39;sometext&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;sometext&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s1">r&#39;replace pattern&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">bre</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;replace pattern&#39;</span><span class="p">)</span>
 </pre></div>
               
             </article>
@@ -1213,47 +995,17 @@ extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, 'l' 
         </div>
       </main>
       
-        <!--
-  Copyright (c) 2016-2017 Martin Donath <martin.donath@squidfunk.com>
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-
-
-<!-- Application footer -->
+        
 <footer class="md-footer">
-
-  <!-- Link to previous and/or next page -->
   
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
-
-        <!-- Link to previous page -->
         
-          <a href="../installation/"
-              title="Installation"
-              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
-              rel="prev">
+          <a href="../installation/" title="Installation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back
-                    md-footer-nav__icon"></i>
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch
-                  md-footer-nav__title">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
@@ -1263,14 +1015,9 @@ extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, 'l' 
             </div>
           </a>
         
-
-        <!-- Link to next page -->
         
-          <a href="../contributing/" title="Contributing &amp; Support"
-              class="md-flex md-footer-nav__link md-footer-nav__link--next"
-              rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch
-                  md-footer-nav__title">
+          <a href="../contributing/" title="Contributing &amp; Support" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
@@ -1279,20 +1026,15 @@ extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, 'l' 
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward
-                    md-footer-nav__icon"></i>
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
             </div>
           </a>
         
       </nav>
     </div>
   
-
-  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-
-      <!-- Copyright and theme information -->
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
@@ -1302,14 +1044,11 @@ extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, 'l' 
         powered by
         <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
         and
-        <a href="http://squidfunk.github.io/mkdocs-material/"
-            title="Material for MkDocs">
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
           Material for MkDocs</a>
         with emoji provided free by
         <a href="http://www.emojione.com">EmojiOne</a>
       </div>
-
-      <!-- Social links -->
       
         
   <div class="md-footer-social">
@@ -1327,8 +1066,8 @@ extra work to try and add equivalents for <code>\c</code>, <code>\C</code>, 'l' 
       
     </div>
     
-      <script src="../assets/javascripts/application-16f434a21a.js"></script>
-      <script>var config={url:{base:".."}},app=new Application(config);app.initialize()</script>
+      <script src="../assets/javascripts/application-f7ac33b6fb.js"></script>
+      <script>app.initialize({url:{base:".."}})</script>
       
     
     
